@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
-import { copyFileSync, mkdirSync, readdirSync, statSync } from 'fs'
+import { copyFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 
@@ -9,30 +9,52 @@ const __dirname = dirname(__filename)
 
 // Плагин для копирования статических файлов в dist
 // Копирует favicon и другие статические файлы (robots.txt, sitemap.xml)
-// Использует closeBundle для гарантированного выполнения после полной записи всех файлов
+// Использует writeBundle (выполняется сразу после записи файлов) и closeBundle (для финальной проверки)
 function copyStaticFilesPlugin() {
+  let distDir
+  
   return {
     name: 'copy-static-files',
-    closeBundle() {
-      // Выполняется ПОСЛЕ полного завершения записи всех бандлов и закрытия bundle
-      // Это гарантирует, что папка dist уже создана и все файлы записаны
+    buildStart() {
+      // Инициализируем путь к dist в начале сборки
+      distDir = resolve(__dirname, 'dist')
+      console.log('🔨 Начало сборки, dist будет в:', distDir)
+      console.log('🔨 Текущая рабочая директория:', process.cwd())
+      
+      // Явно создаем папку dist, если её нет (на всякий случай)
+      if (!existsSync(distDir)) {
+        console.log('📁 Папка dist не существует, создаем...')
+        mkdirSync(distDir, { recursive: true })
+        console.log('✅ Папка dist создана')
+      } else {
+        console.log('✅ Папка dist уже существует')
+      }
+    },
+    writeBundle() {
+      // Выполняется сразу после записи всех файлов бандла
+      // Это критически важно - Vercel может проверить dist именно здесь
       try {
-        const distDir = resolve(__dirname, 'dist')
+        // Убеждаемся, что dist существует (должна быть создана Vite)
+        if (!existsSync(distDir)) {
+          console.error('❌ Папка dist не найдена после writeBundle!')
+          console.error('❌ Создаем папку dist вручную...')
+          mkdirSync(distDir, { recursive: true })
+        }
         
-        // Проверяем, что dist существует
+        // Проверяем, что это директория
         if (!statSync(distDir).isDirectory()) {
-          console.error('❌ Папка dist не найдена!')
+          console.error('❌ dist существует, но это не директория!')
           process.exit(1)
         }
         
-        console.log('📁 Папка dist существует, начинаем копирование статических файлов...')
+        console.log('📁 Папка dist существует после writeBundle, начинаем копирование статических файлов...')
         
         // Копируем favicon из public/favicon в dist/favicon
         const faviconSourceDir = resolve(__dirname, 'public/favicon')
         const faviconTargetDir = resolve(__dirname, 'dist/favicon')
         
         try {
-          if (statSync(faviconSourceDir).isDirectory()) {
+          if (existsSync(faviconSourceDir) && statSync(faviconSourceDir).isDirectory()) {
             mkdirSync(faviconTargetDir, { recursive: true })
             const files = readdirSync(faviconSourceDir)
             files.forEach(file => {
@@ -56,7 +78,7 @@ function copyStaticFilesPlugin() {
         rootFiles.forEach(file => {
           const sourcePath = resolve(__dirname, file)
           try {
-            if (statSync(sourcePath).isFile()) {
+            if (existsSync(sourcePath) && statSync(sourcePath).isFile()) {
               const targetPath = resolve(__dirname, 'dist', file)
               copyFileSync(sourcePath, targetPath)
               console.log(`✅ ${file} скопирован в dist/`)
@@ -66,17 +88,37 @@ function copyStaticFilesPlugin() {
           }
         })
         
-        // Финальная проверка - убеждаемся, что dist содержит файлы
+        // Проверяем, что dist содержит файлы
         const distFiles = readdirSync(distDir)
         if (distFiles.length === 0) {
-          console.error('❌ Папка dist пуста после сборки!')
+          console.error('❌ Папка dist пуста после writeBundle!')
           process.exit(1)
         }
         
-        console.log(`✅ Сборка завершена успешно. В dist найдено ${distFiles.length} элементов.`)
+        console.log(`✅ Статические файлы скопированы. В dist найдено ${distFiles.length} элементов.`)
       } catch (error) {
-        console.error('❌ Критическая ошибка при копировании статических файлов:', error.message)
+        console.error('❌ Критическая ошибка в writeBundle:', error.message)
         console.error('❌ Стек ошибки:', error.stack)
+        process.exit(1)
+      }
+    },
+    closeBundle() {
+      // Финальная проверка после закрытия bundle
+      try {
+        if (!existsSync(distDir)) {
+          console.error('❌ ОШИБКА: Папка dist исчезла после closeBundle!')
+          process.exit(1)
+        }
+        
+        const distFiles = readdirSync(distDir)
+        if (distFiles.length === 0) {
+          console.error('❌ ОШИБКА: Папка dist пуста после closeBundle!')
+          process.exit(1)
+        }
+        
+        console.log(`✅ Финальная проверка пройдена: dist содержит ${distFiles.length} элементов`)
+      } catch (error) {
+        console.error('❌ Ошибка в closeBundle:', error.message)
         process.exit(1)
       }
     }
