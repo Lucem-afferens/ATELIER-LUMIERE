@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://atelierlumiere.ru/sitemap.xml
+
+# Disallow admin and private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all pages
+Allow: /index.html
+Allow: /menu.html
+Allow: /wine.html
+Allow: /about.html
+Allow: /private-dining.html
+Allow: /contact.html
+Allow: /reservation.html
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Условия Использования — Ателье Люмьер</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: #f5f1e8;
+        }
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
+            z-index: 1;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-nav {
+                display: none;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="grain-overlay"></div>
+    <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex justify-between items-start fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
+        <div class="flex items-center space-x-4 md:space-x-12">
+            <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]">
+                ATELIER LUMIÈRE
+            </a>
+        </div>
+        
+        <!-- Десктопная навигация -->
+        <nav class="desktop-nav hidden md:flex items-center space-x-6 lg:space-x-10 text-xs lg:text-sm tracking-wider">
+            <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+            <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+            <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+            <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+            <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+            <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+            <div class="h-6 w-px bg-[#b8985f]/30"></div>
+            <button id="lang-en" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
+            <button id="lang-ru" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+        </nav>
+        
+        <!-- Мобильная кнопка меню -->
+        <button id="mobile-menu-btn" class="mobile-menu md:hidden text-[#b8985f] text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <!-- Мобильное меню -->
+    <nav id="mobile-nav" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-full bg-[#0a0a0a] z-50 flex flex-col items-center justify-center space-y-8 text-lg">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-[#b8985f] text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+        <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+        <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+        <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+        <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+        <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+        <div class="flex space-x-4">
+            <button id="lang-en-mobile" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
+            <button id="lang-ru-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+        </div>
+    </nav>
+    <section class="pt-20 pb-16 sm:pt-32 md:pt-40 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="font-display text-5xl mb-8 text-[#f5f1e8]">Условия Использования</h1>
+            <div class="space-y-6 text-[#f5f1e8]/70 leading-relaxed">
+                <p>Используя наш веб-сайт и услуги, вы соглашаетесь с настоящими Условиями использования.</p>
+                <h2 class="text-2xl font-display text-[#f5f1e8] mt-8">1. Бронирование</h2>
+                <p>Бронирование столика подтверждается только после получения уведомления от ресторана. Мы оставляем за собой право отклонить бронирование.</p>
+                <h2 class="text-2xl font-display text-[#f5f1e8] mt-8">2. Отмена</h2>
+                <p>Пожалуйста, уведомите нас минимум за 24 часа, если вам нужно отменить бронирование.</p>
+                <h2 class="text-2xl font-display text-[#f5f1e8] mt-8">3. Дресс-код</h2>
+                <p>В ресторане действует смарт-кэжуал дресс-код. Мы оставляем за собой право отказать в обслуживании в случае несоответствия.</p>
+                <h2 class="text-2xl font-display text-[#f5f1e8] mt-8">4. Контакты</h2>
+                <p>По вопросам: info@atelierlumiere.ru</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript для мобильного меню и переключения языка -->
+    <script>
+        // Текущий язык (по умолчанию русский)
+        let currentLang = 'ru';
+        
+        // Функция переключения языка
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Обновляем все элементы с data-атрибутами
+            document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
+                // Пропускаем название ресторана - оно всегда на английском
+                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                    return;
+                }
+                // Проверяем, содержит ли атрибут HTML теги (например, <br/>)
+                const ruValue = element.getAttribute('data-lang-ru') || '';
+                const enValue = element.getAttribute('data-lang-en') || '';
+                const hasHtmlTags = ruValue.includes('<') || enValue.includes('<');
+                
+                if (lang === 'ru') {
+                    // Используем innerHTML если есть HTML теги, иначе textContent
+                    if (hasHtmlTags) {
+                        element.innerHTML = ruValue;
+                    } else {
+                        element.textContent = ruValue;
+                    }
+                } else {
+                    if (hasHtmlTags) {
+                        element.innerHTML = enValue;
+                    } else {
+                        element.textContent = enValue;
+                    }
+                }
+            });
+            
+            // Обновляем стили кнопок языка
+            const langRuBtns = document.querySelectorAll('#lang-ru, #lang-ru-mobile');
+            const langEnBtns = document.querySelectorAll('#lang-en, #lang-en-mobile');
+            
+            if (lang === 'ru') {
+                langRuBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/60');
+                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
+                });
+                langEnBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
+                    btn.classList.add('text-[#f5f1e8]/60');
+                });
+            } else {
+                langEnBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/60');
+                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
+                });
+                langRuBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
+                    btn.classList.add('text-[#f5f1e8]/60');
+                });
+            }
+            
+            // Сохраняем выбор языка в localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Загружаем сохраненный язык при загрузке страницы
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && savedLang !== 'ru') {
+            switchLanguage(savedLang);
+        }
+        
+        // Обработчики для кнопок переключения языка
+        document.getElementById('lang-ru')?.addEventListener('click', () => switchLanguage('ru'));
+        document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('lang-ru-mobile')?.addEventListener('click', () => {
+            switchLanguage('ru');
+            document.getElementById('mobile-nav')?.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        document.getElementById('lang-en-mobile')?.addEventListener('click', () => {
+            switchLanguage('en');
+            document.getElementById('mobile-nav')?.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        
+        // Открытие/закрытие мобильного меню
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.style.display = '';
+                mobileNav.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Закрытие меню при клике на ссылку (мгновенно, с программным переходом)
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Пропускаем якорные ссылки (они начинаются с #)
+                if (href && href.startsWith('#')) {
+                    return;
+                }
+                
+                // Предотвращаем стандартный переход
+                e.preventDefault();
+                
+                // Мгновенно закрываем меню (убираем из видимости напрямую)
+                mobileNav.style.display = 'none';
+                mobileNav.classList.add('hidden');
+                document.body.style.overflow = '';
+                
+                // Сразу переходим на новую страницу
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
