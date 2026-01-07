@@ -1,74 +1,219 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ателье Люмьер — Ресторан высокой кухни</title>
+    <title>Ателье Люмьер — Ресторан высокой кухни в Москве | Бронирование столика</title>
+    <meta name="description" content="Ателье Люмьер — премиальный ресторан высокой кухни в Москве. Сезонное меню, винная карта, частные ужины. Бронирование столика онлайн.">
+    <meta name="keywords" content="ресторан Москва, высокая кухня, Ателье Люмьер, бронирование столика, ресторан Тверская, винная карта, частные ужины">
+    <meta name="author" content="Ателье Люмьер">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://atelierlumiere.ru/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="restaurant">
+    <meta property="og:url" content="https://atelierlumiere.ru/">
+    <meta property="og:title" content="Ателье Люмьер — Ресторан высокой кухни в Москве">
+    <meta property="og:description" content="Премиальный ресторан высокой кухни в Москве. Сезонное меню, винная карта, частные ужины.">
+    <meta property="og:image" content="https://atelierlumiere.ru/images/og-image.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://atelierlumiere.ru/">
+    <meta property="twitter:title" content="Ателье Люмьер — Ресторан высокой кухни в Москве">
+    <meta property="twitter:description" content="Премиальный ресторан высокой кухни в Москве. Сезонное меню, винная карта, частные ужины.">
+    <meta property="twitter:image" content="https://atelierlumiere.ru/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ATELIER LUMIÈRE" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Ателье Люмьер",
+      "alternateName": "Atelier Lumière",
+      "image": "https://atelierlumiere.ru/images/restaurant.jpg",
+      "url": "https://atelierlumiere.ru",
+      "telephone": "+7 495 123 4567",
+      "email": "reservations@atelierlumiere.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Тверская улица, 12",
+        "addressLocality": "Москва",
+        "postalCode": "125009",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "55.7558",
+        "longitude": "37.6173"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "18:00",
+          "closes": "23:00"
+        }
+      ],
+      "servesCuisine": "Высокая кухня",
+      "priceRange": "$$$",
+      "acceptsReservations": "True",
+      "menu": "https://atelierlumiere.ru/menu.html",
+      "hasMenu": {
+        "@type": "Menu",
+        "url": "https://atelierlumiere.ru/menu.html"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-Cpib5vZ-.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-C7rSh3vq.css">
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: #f5f1e8;
+        }
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
+            z-index: 1;
+        }
+        .btn-primary {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-primary:hover {
+            background: #c9a961;
+            transform: translateY(-1px);
+        }
+        .btn-secondary {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-secondary:hover {
+            border-color: #c9a961;
+            color: #c9a961;
+        }
+        .divider-gold {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b8985f 50%, transparent);
+        }
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Мобильное меню */
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-nav {
+                display: none;
+            }
+        }
+        
+        /* Адаптивные изображения */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body class="overflow-x-hidden">
     <div class="grain-overlay"></div>
-    
+
     <div id="hero-section" class="relative w-full h-screen min-h-[600px] md:h-[1024px] overflow-hidden">
     <div class="absolute inset-0 z-0">
-            <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dc39e35ff7-e9040032e88f66bc8e1c.png" alt="elegant fine dining restaurant interior moscow, dark moody cinematic lighting, candlelit tables, contemporary luxury design, evening atmosphere, wide angle architectural shot" />
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/dc39e35ff7-e9040032e88f66bc8e1c.png" alt="Интерьер ресторана Ателье Люмьер в Москве" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70"></div>
     </div>
 
         <div class="relative z-10 w-full h-full flex flex-col">
-            <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex justify-between items-start">
+            <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex justify-between items-start fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
                 <div class="flex items-center space-x-4 md:space-x-12">
-                    <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]" data-lang-ru="АТЕЛЬЕ ЛЮМЬЕР" data-lang-en="ATELIER LUMIÈRE">
-                        АТЕЛЬЕ ЛЮМЬЕР
+                    <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]">
+                        ATELIER LUMIÈRE
                     </a>
-                </div>
+            </div>
                 
                 <!-- Десктопная навигация -->
                 <nav class="desktop-nav hidden md:flex items-center space-x-6 lg:space-x-10 text-xs lg:text-sm tracking-wider">
+                    <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
                     <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+                    <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
                     <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
                     <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
                     <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
                     <div class="h-6 w-px bg-[#b8985f]/30"></div>
-                    <button id="lang-en" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
-                    <button id="lang-ru" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+                    <button id="lang-toggle" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-xs lg:text-sm">RU</button>
                 </nav>
                 
-                <!-- Мобильная кнопка меню -->
-                <button id="mobile-menu-btn" class="mobile-menu md:hidden text-[#b8985f] text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </header>
-            
+                <!-- Мобильная кнопка языка и меню -->
+                <div class="flex items-center space-x-4 md:hidden">
+                    <button id="lang-toggle-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
+                    <button id="mobile-menu-btn" class="mobile-menu text-[#b8985f] text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+        </header>
+
             <!-- Мобильное меню -->
             <nav id="mobile-nav" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-full bg-[#0a0a0a] z-50 flex flex-col items-center justify-center space-y-8 text-lg">
                 <button id="mobile-menu-close" class="absolute top-8 right-8 text-[#b8985f] text-3xl">
                     <i class="fas fa-times"></i>
                 </button>
+                <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
                 <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+                <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
                 <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
                 <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
                 <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
-                <div class="flex space-x-4">
-                    <button id="lang-en-mobile" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
-                    <button id="lang-ru-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
-                </div>
+                <button id="lang-toggle-mobile-menu" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
             </nav>
             
-            <div class="flex-1 flex items-center justify-center px-4 sm:px-8 md:px-16">
+            <div class="flex-1 flex items-center justify-center px-4 sm:px-8 md:px-16 pt-20 md:pt-0">
                 <div class="max-w-4xl text-center fade-in">
                     <div class="mb-4 md:mb-6">
                         <div class="w-8 md:w-12 h-px bg-[#b8985f] mx-auto mb-4 md:mb-8"></div>
                         <p class="text-xs sm:text-sm tracking-[0.3em] text-[#b8985f] mb-2 md:mb-4" data-lang-ru="СОВРЕМЕННАЯ ВЫСОКАЯ КУХНЯ" data-lang-en="CONTEMPORARY FINE DINING">СОВРЕМЕННАЯ ВЫСОКАЯ КУХНЯ</p>
-            </div>
-                    
+                </div>
+                
                     <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-4 md:mb-8 tracking-wide text-[#f5f1e8] px-4" data-lang-ru="Вечер<br/>Изысканного Кулинарного Искусства" data-lang-en="An Evening of<br/>Refined Culinary Artistry">
                         Вечер<br/>Изысканного Кулинарного Искусства
                     </h1>
@@ -84,16 +229,16 @@
                         <a href="menu.html" class="btn-secondary w-full sm:w-auto px-8 md:px-12 py-3 md:py-4 border border-[#f5f1e8]/30 text-[#f5f1e8] text-xs sm:text-sm tracking-[0.2em] font-light text-center" data-lang-ru="СМОТРЕТЬ МЕНЮ" data-lang-en="VIEW MENU">
                             СМОТРЕТЬ МЕНЮ
                         </a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
             <div class="px-4 sm:px-8 md:px-16 pb-6 md:pb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
                 <div class="text-xs tracking-wider text-[#f5f1e8]/50 space-y-1">
                     <p data-lang-ru="Тверская улица, 12" data-lang-en="Tverskaya Street, 12">Тверская улица, 12</p>
                     <p data-lang-ru="Москва, 125009" data-lang-en="Moscow, 125009">Москва, 125009</p>
-                </div>
-                
+            </div>
+            
                 <div class="text-xs tracking-wider text-[#f5f1e8]/50 sm:text-right space-y-1">
                     <p data-lang-ru="ВТОРНИК – СУББОТА" data-lang-en="TUESDAY – SATURDAY">ВТОРНИК – СУББОТА</p>
                     <p>18:00 – 23:00</p>
@@ -102,11 +247,11 @@
                 <div class="text-xs tracking-wider text-[#f5f1e8]/50 sm:text-right space-y-1">
                     <p data-lang-ru="БРОНИРОВАНИЕ" data-lang-en="RESERVATIONS">БРОНИРОВАНИЕ</p>
                     <p class="text-[#b8985f]">+7 495 123 4567</p>
-                </div>
             </div>
         </div>
     </div>
-    
+</div>
+
     <section id="philosophy-section" class="w-full bg-[#0f0f0f] py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-16">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
@@ -134,26 +279,26 @@
             </div>
 
                 <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] mt-8 md:mt-0">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/985d73448c-40007f098a15be900568.png" alt="michelin star plated dish, fine dining presentation, artistic food photography, dark moody lighting, contemporary cuisine, garnished with microgreens and edible flowers" />
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/985d73448c-40007f098a15be900568.png" alt="Блюдо высокой кухни в ресторане Ателье Люмьер" loading="lazy" />
                     <div class="absolute inset-0 border border-[#b8985f]/20"></div>
-                </div>
             </div>
         </div>
-    </section>
-    
+    </div>
+</section>
+
     <section id="chef-section" class="w-full bg-[#1a1a1a] py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-16">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
                 <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[700px] order-2 md:order-1">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fb61f170c-bc9d8db0db8d65e6c381.png" alt="professional chef in fine dining restaurant kitchen, portrait, serious expression, dark moody lighting, culinary artistry, modern kitchen background" />
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/2fb61f170c-bc9d8db0db8d65e6c381.png" alt="Шеф-повар ресторана Ателье Люмьер" loading="lazy" />
                     <div class="absolute inset-0 border border-[#b8985f]/20"></div>
-                </div>
-                
+        </div>
+
                 <div class="order-1 md:order-2">
                     <div class="mb-4 md:mb-8">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-2 md:mb-4" data-lang-ru="ШЕФ-ПОВАР" data-lang-en="EXECUTIVE CHEF">ШЕФ-ПОВАР</p>
                         <div class="w-16 h-px bg-[#b8985f]"></div>
-                    </div>
+                </div>
                     
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-6 text-[#f5f1e8]">
                         Александр Волков
@@ -175,12 +320,12 @@
                         <div>
                             <p class="text-xl sm:text-2xl font-display text-[#b8985f] mb-1">20+</p>
                             <p class="tracking-wider" data-lang-ru="Лет Опыта" data-lang-en="Years Experience">Лет Опыта</p>
-                        </div>
+                </div>
                         <div class="hidden md:block h-12 w-px bg-[#b8985f]/30"></div>
                         <div>
                             <p class="text-xl sm:text-2xl font-display text-[#b8985f] mb-1">2</p>
                             <p class="tracking-wider" data-lang-ru="Звезды Мишлен" data-lang-en="Michelin Stars">Звезды Мишлен</p>
-                        </div>
+            </div>
                         <div class="hidden md:block h-12 w-px bg-[#b8985f]/30"></div>
                         <div>
                             <p class="text-xl sm:text-2xl font-display text-[#b8985f] mb-1">15</p>
@@ -200,12 +345,12 @@
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#f5f1e8] px-4" data-lang-ru="Путешествие Вкуса" data-lang-en="A Journey Through Taste">
                     Путешествие Вкуса
                 </h2>
-            </div>
+                </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mb-8 md:mb-16">
                 <div class="group cursor-pointer">
                     <div class="relative h-48 sm:h-64 md:h-80 mb-4 md:mb-6 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9cc3853944-f2afb7fd49375e6f6ae2.png" alt="fine dining appetizer, scallops with caviar, artistic plating, dark plate, michelin star presentation, top view, moody lighting" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/9cc3853944-f2afb7fd49375e6f6ae2.png" alt="Закуска с икрой в ресторане Ателье Люмьер" loading="lazy" />
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                         <div class="absolute inset-0 border border-[#b8985f]/0 group-hover:border-[#b8985f]/30 transition-colors duration-500"></div>
                     </div>
@@ -215,15 +360,15 @@
                         <p class="text-sm text-[#f5f1e8]/60 leading-relaxed font-light" data-lang-ru="С осетровой икрой, консервированным лимоном и эмульсией даси" data-lang-en="With oscietra caviar, preserved lemon, and dashi emulsion">
                             С осетровой икрой, консервированным лимоном и эмульсией даси
                         </p>
-                    </div>
-                </div>
-                
+            </div>
+        </div>
+
                 <div class="group cursor-pointer">
                     <div class="relative h-48 sm:h-64 md:h-80 mb-4 md:mb-6 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f7fe378fef-f3336b820855d45becc0.png" alt="fine dining main course, wagyu beef, artistic plating, dark plate, michelin star presentation, garnished with gold leaf, moody lighting" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f7fe378fef-f3336b820855d45becc0.png" alt="Основное блюдо в ресторане Ателье Люмьер" loading="lazy" />
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                         <div class="absolute inset-0 border border-[#b8985f]/0 group-hover:border-[#b8985f]/30 transition-colors duration-500"></div>
-            </div>
+                </div>
                     <div class="text-center">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-2" data-lang-ru="ОСНОВНОЕ БЛЮДО" data-lang-en="MAIN COURSE">ОСНОВНОЕ БЛЮДО</p>
                         <h3 class="font-display text-2xl mb-3 text-[#f5f1e8]" data-lang-ru="Вагю А5" data-lang-en="A5 Wagyu">Вагю А5</h3>
@@ -231,14 +376,14 @@
                             С черным трюфелем, жареным костным мозгом и красным вином
                         </p>
                     </div>
-                </div>
-                
+            </div>
+
                 <div class="group cursor-pointer">
                     <div class="relative h-48 sm:h-64 md:h-80 mb-4 md:mb-6 overflow-hidden">
-                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7f783a7b62-6caa82283ce8d5c513c5.png" alt="fine dining dessert, chocolate sphere, artistic plating, dark plate, michelin star presentation, gold details, moody lighting" />
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7f783a7b62-6caa82283ce8d5c513c5.png" alt="Десерт в ресторане Ателье Люмьер" loading="lazy" />
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                         <div class="absolute inset-0 border border-[#b8985f]/0 group-hover:border-[#b8985f]/30 transition-colors duration-500"></div>
-                    </div>
+                </div>
                     <div class="text-center">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-2" data-lang-ru="ДЕСЕРТ" data-lang-en="DESSERT">ДЕСЕРТ</p>
                         <h3 class="font-display text-2xl mb-3 text-[#f5f1e8]" data-lang-ru="Шоколадная Сфера" data-lang-en="Valrhona Sphere">Шоколадная Сфера</h3>
@@ -246,9 +391,9 @@
                             С пралине из фундука, эспрессо-кремом и ванильным мороженым
                         </p>
                     </div>
-                </div>
             </div>
-            
+        </div>
+
             <div class="text-center">
                     <a href="menu.html" class="btn-secondary inline-block px-12 py-4 border border-[#f5f1e8]/30 text-[#f5f1e8] text-sm tracking-[0.2em] font-light" data-lang-ru="СМОТРЕТЬ ПОЛНОЕ МЕНЮ" data-lang-en="EXPLORE FULL MENU">
                         СМОТРЕТЬ ПОЛНОЕ МЕНЮ
@@ -264,7 +409,7 @@
                     <div class="mb-8">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-4" data-lang-ru="ВИННАЯ ПРОГРАММА" data-lang-en="WINE PROGRAM">ВИННАЯ ПРОГРАММА</p>
                         <div class="w-16 h-px bg-[#b8985f]"></div>
-                    </div>
+                </div>
                     
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-8 text-[#f5f1e8]" data-lang-ru="Исключительная<br/>Коллекция Вин" data-lang-en="An Exceptional<br/>Cellar Collection">
                         Исключительная<br/>Коллекция Вин
@@ -280,22 +425,22 @@
                         <p data-lang-ru="Каждая пара создана для возвышения вашего гастрономического опыта, создавая гармонии между едой и вином, которые остаются долго после последнего блюда." data-lang-en="Each pairing is designed to elevate your dining experience, creating harmonies between food and wine that linger long after the final course.">
                             Каждая пара создана для возвышения вашего гастрономического опыта, создавая гармонии между едой и вином, которые остаются долго после последнего блюда.
             </p>
-        </div>
+                    </div>
 
                     <div class="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 md:mb-10">
                         <div>
                             <p class="text-3xl font-display text-[#b8985f] mb-2">800+</p>
                             <p class="text-xs tracking-wider text-[#f5f1e8]/50" data-lang-ru="Наименований" data-lang-en="Wine Labels">Наименований</p>
-                        </div>
+                    </div>
                         <div>
                             <p class="text-3xl font-display text-[#b8985f] mb-2">15</p>
                             <p class="text-xs tracking-wider text-[#f5f1e8]/50" data-lang-ru="Стран" data-lang-en="Countries">Стран</p>
-            </div>
+                    </div>
                         <div>
                             <p class="text-3xl font-display text-[#b8985f] mb-2">120</p>
                             <p class="text-xs tracking-wider text-[#f5f1e8]/50" data-lang-ru="Редких Винтажей" data-lang-en="Rare Vintages">Редких Винтажей</p>
+                </div>
             </div>
-        </div>
 
                     <a href="wine.html" class="btn-secondary inline-block px-10 py-3 border border-[#f5f1e8]/30 text-[#f5f1e8] text-sm tracking-[0.2em] font-light" data-lang-ru="СМОТРЕТЬ ВИННУЮ КАРТУ" data-lang-en="VIEW WINE LIST">
                         СМОТРЕТЬ ВИННУЮ КАРТУ
@@ -303,7 +448,7 @@
             </div>
                 
                 <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[700px] mt-8 md:mt-0">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/32dc0596f7-d747395f01254cf6f767.png" alt="luxury wine cellar, fine dining restaurant, dark moody lighting, bottles on wooden shelves, elegant interior, atmospheric" />
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/32dc0596f7-d747395f01254cf6f767.png" alt="Винный погреб ресторана Ателье Люмьер" loading="lazy" />
                     <div class="absolute inset-0 border border-[#b8985f]/20"></div>
             </div>
         </div>
@@ -320,25 +465,25 @@
                 </h2>
                 <p class="text-sm sm:text-base md:text-lg text-[#f5f1e8]/70 max-w-2xl mx-auto leading-relaxed font-light px-4" data-lang-ru="Тщательно продуманная среда, где каждая деталь способствует атмосфере тихой роскоши и сосредоточенного внимания." data-lang-en="A carefully considered environment where every detail contributes to an atmosphere of quiet luxury and focused attention.">
                     Тщательно продуманная среда, где каждая деталь способствует атмосфере тихой роскоши и сосредоточенного внимания.
-                </p>
-            </div>
-            
+            </p>
+        </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-8">
                 <div class="relative h-48 sm:h-64 md:h-80 lg:h-96">
-                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/90d6b578d0-36bb61ee5f41d52f9f34.png" alt="fine dining restaurant interior, intimate dining room, candlelit tables, dark wood, leather chairs, moody atmospheric lighting, luxury design" />
+                    <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/90d6b578d0-36bb61ee5f41d52f9f34.png" alt="Интерьер обеденного зала ресторана Ателье Люмьер" loading="lazy" />
                     <div class="absolute inset-0 border border-[#b8985f]/20"></div>
-                </div>
+            </div>
                 <div class="relative h-48 sm:h-64 md:h-80 lg:h-96">
                     <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/bb868917d4-66094e8ae1faacb4b3e4.png" alt="fine dining restaurant bar area, backlit bottles, marble counter, brass details, dark elegant interior, moscow luxury restaurant" />
                     <div class="absolute inset-0 border border-[#b8985f]/20"></div>
-                </div>
             </div>
-            
+        </div>
+
             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[500px]">
                 <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/a8aae4fa70-cbeef9aa6a5a0370a7a9.png" alt="fine dining restaurant private dining room, long table setup, candlelight, elegant place settings, dark sophisticated interior, luxury moscow restaurant" />
                 <div class="absolute inset-0 border border-[#b8985f]/20"></div>
-        </div>
-    </div>
+            </div>
+            </div>
 </section>
 
     <section id="private-dining-section" class="w-full bg-[#1a1a1a] py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-16">
@@ -347,13 +492,13 @@
                 <div class="relative h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] order-2 md:order-1">
                     <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/40fa09b9d1-f3caeb63569cca039d0a.png" alt="luxury private dining room, fine dining restaurant, intimate setting, round table, candlelight, dark elegant interior, moscow" />
                     <div class="absolute inset-0 border border-[#b8985f]/20"></div>
-                </div>
-                
+        </div>
+
                 <div class="order-1 md:order-2">
                     <div class="mb-4 md:mb-8">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-2 md:mb-4" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE EXPERIENCES">ЧАСТНЫЕ УЖИНЫ</p>
                         <div class="w-16 h-px bg-[#b8985f]"></div>
-                    </div>
+        </div>
                     
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-8 text-[#f5f1e8]" data-lang-ru="Эксклюзивный Ужин<br/>для Вашего События" data-lang-en="Exclusive Dining<br/>for Your Occasion">
                         Эксклюзивный Ужин<br/>для Вашего События
@@ -369,17 +514,17 @@
                         <p data-lang-ru="От интимных празднований до важных деловых ужинов, мы гарантируем, что каждая деталь отражает важность вашего события." data-lang-en="From intimate celebrations to important business dinners, we ensure every detail reflects the importance of your occasion.">
                             От интимных празднований до важных деловых ужинов, мы гарантируем, что каждая деталь отражает важность вашего события.
                         </p>
-        </div>
+                </div>
 
                     <div class="space-y-4 mb-6 md:mb-10">
                         <div class="flex items-start space-x-4">
                             <div class="w-1 h-1 bg-[#b8985f] mt-2"></div>
                             <p class="text-[#f5f1e8]/70 font-light" data-lang-ru="Вместимость 8-14 гостей" data-lang-en="Capacity for 8-14 guests">Вместимость 8-14 гостей</p>
-                        </div>
+            </div>
                         <div class="flex items-start space-x-4">
                             <div class="w-1 h-1 bg-[#b8985f] mt-2"></div>
                             <p class="text-[#f5f1e8]/70 font-light" data-lang-ru="Индивидуальное меню и винные пары" data-lang-en="Customized menu and wine pairings">Индивидуальное меню и винные пары</p>
-            </div>
+                </div>
                         <div class="flex items-start space-x-4">
                             <div class="w-1 h-1 bg-[#b8985f] mt-2"></div>
                             <p class="text-[#f5f1e8]/70 font-light" data-lang-ru="Персональная команда обслуживания" data-lang-en="Dedicated service team">Персональная команда обслуживания</p>
@@ -413,7 +558,7 @@
                     <div class="mb-6">
                         <p class="text-5xl font-display text-[#b8985f] mb-2">★★</p>
                         <p class="text-xs tracking-[0.3em] text-[#f5f1e8]/50" data-lang-ru="ГИД МИШЛЕН" data-lang-en="MICHELIN GUIDE">ГИД МИШЛЕН</p>
-                </div>
+            </div>
                     <p class="text-sm text-[#f5f1e8]/70 leading-relaxed font-light italic" data-lang-ru="«Исключительная кухня, заслуживающая объезда. Мастерская техника и утонченные вкусы.»" data-lang-en="Exceptional cuisine that merits a detour. Masterful technique and refined flavors.">
                         «Исключительная кухня, заслуживающая объезда. Мастерская техника и утонченные вкусы.»
                     </p>
@@ -423,22 +568,22 @@
                     <div class="mb-6">
                         <p class="text-5xl font-display text-[#b8985f] mb-2">№8</p>
                         <p class="text-xs tracking-[0.3em] text-[#f5f1e8]/50" data-lang-ru="50 ЛУЧШИХ МИРА" data-lang-en="WORLD&apos;S 50 BEST">50 ЛУЧШИХ МИРА</p>
-                </div>
+            </div>
                     <p class="text-sm text-[#f5f1e8]/70 leading-relaxed font-light italic" data-lang-ru="«Откровенный гастрономический опыт, устанавливающий новые стандарты для московской кулинарной сцены.»" data-lang-en="A revelatory dining experience that sets new standards for Moscow&apos;s culinary scene.">
                         «Откровенный гастрономический опыт, устанавливающий новые стандарты для московской кулинарной сцены.»
                     </p>
-            </div>
+        </div>
 
                 <div class="text-center">
                     <div class="mb-6">
                         <p class="text-5xl font-display text-[#b8985f] mb-2">5/5</p>
                         <p class="text-xs tracking-[0.3em] text-[#f5f1e8]/50" data-lang-ru="FORBES TRAVEL" data-lang-en="FORBES TRAVEL">FORBES TRAVEL</p>
-                </div>
+            </div>
                     <p class="text-sm text-[#f5f1e8]/70 leading-relaxed font-light italic" data-lang-ru="«Безупречный сервис, необыкновенная кухня и атмосфера сдержанной элегантности.»" data-lang-en="Impeccable service, extraordinary cuisine, and an atmosphere of understated elegance.">
                         «Безупречный сервис, необыкновенная кухня и атмосфера сдержанной элегантности.»
-                    </p>
-                </div>
+                </p>
             </div>
+        </div>
 
             <div class="divider-gold mb-12 md:mb-20"></div>
             
@@ -448,16 +593,16 @@
                         «Каждое блюдо — это медитация о вкусе, текстуре и презентации. Это обед, возведенный в искусство.»
                     </p>
                     <p class="text-xs tracking-wider text-[#b8985f]">— ВЕДОМОСТИ</p>
-                </div>
-                
+        </div>
+
                 <div class="border-l-2 border-[#b8985f]/30 pl-8">
                     <p class="text-lg text-[#f5f1e8] leading-relaxed font-light italic mb-4" data-lang-ru="«Ресторан, который понимает силу сдержанности, где каждый элемент служит цели.»" data-lang-en="A restaurant that understands the power of restraint, where every element serves a purpose.">
                         «Ресторан, который понимает силу сдержанности, где каждый элемент служит цели.»
                     </p>
                     <p class="text-xs tracking-wider text-[#b8985f]">— THE MOSCOW TIMES</p>
+                </div>
+                </div>
             </div>
-        </div>
-    </div>
 </section>
 
     <section id="experience-section" class="w-full bg-[#1a1a1a] py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-16">
@@ -468,33 +613,33 @@
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#f5f1e8] mb-4 md:mb-6 px-4" data-lang-ru="Вечер, Созданный<br/>Вокруг Вас" data-lang-en="An Evening Designed<br/>Around You">
                     Вечер, Созданный<br/>Вокруг Вас
                 </h2>
-        </div>
+                </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div class="text-center">
                     <div class="w-20 h-20 rounded-full border border-[#b8985f]/30 flex items-center justify-center mx-auto mb-6">
                         <span class="font-display text-2xl text-[#b8985f]">I</span>
-                    </div>
+                </div>
                     <h3 class="text-lg font-display mb-3 text-[#f5f1e8]" data-lang-ru="Прибытие" data-lang-en="Arrival">Прибытие</h3>
                     <p class="text-sm text-[#f5f1e8]/60 leading-relaxed font-light" data-lang-ru="Встреча с фирменным аперитивом и размещение в нашем интимном зале" data-lang-en="Welcomed with a signature aperitif and seated in our intimate dining room">
                         Встреча с фирменным аперитивом и размещение в нашем интимном зале
                     </p>
-                </div>
-                
+            </div>
+
                 <div class="text-center">
                     <div class="w-20 h-20 rounded-full border border-[#b8985f]/30 flex items-center justify-center mx-auto mb-6">
                         <span class="font-display text-2xl text-[#b8985f]">II</span>
-                    </div>
+                </div>
                     <h3 class="text-lg font-display mb-3 text-[#f5f1e8]" data-lang-ru="Консультация" data-lang-en="Consultation">Консультация</h3>
                     <p class="text-sm text-[#f5f1e8]/60 leading-relaxed font-light" data-lang-ru="Наш сомелье обсуждает предпочтения и предлагает пары для вашего меню" data-lang-en="Our sommelier discusses preferences and suggests pairings for your menu">
                         Наш сомелье обсуждает предпочтения и предлагает пары для вашего меню
                     </p>
-                </div>
+            </div>
 
                 <div class="text-center">
                     <div class="w-20 h-20 rounded-full border border-[#b8985f]/30 flex items-center justify-center mx-auto mb-6">
                         <span class="font-display text-2xl text-[#b8985f]">III</span>
-                    </div>
+                </div>
                     <h3 class="text-lg font-display mb-3 text-[#f5f1e8]" data-lang-ru="Путешествие" data-lang-en="Journey">Путешествие</h3>
                     <p class="text-sm text-[#f5f1e8]/60 leading-relaxed font-light" data-lang-ru="Семь блюд разворачиваются за три часа, каждое продуманно выдержано" data-lang-en="Seven courses unfold over three hours, each thoughtfully paced">
                         Семь блюд разворачиваются за три часа, каждое продуманно выдержано
@@ -509,11 +654,11 @@
                     <p class="text-sm text-[#f5f1e8]/60 leading-relaxed font-light" data-lang-ru="Финальный момент гостеприимства при уходе в московский вечер" data-lang-en="A final moment of hospitality as you depart into the Moscow evening">
                         Финальный момент гостеприимства при уходе в московский вечер
                     </p>
-                </div>
             </div>
         </div>
-    </section>
-    
+    </div>
+</section>
+
     <section id="reservation-section" class="w-full bg-[#0f0f0f] py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-16">
         <div class="max-w-4xl mx-auto text-center">
             <div class="mb-8 md:mb-12">
@@ -522,38 +667,53 @@
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight text-[#f5f1e8] mb-4 md:mb-6 px-4" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">
                     Забронируйте Стол
                 </h2>
-                <p class="text-sm sm:text-base md:text-lg text-[#f5f1e8]/70 max-w-2xl mx-auto leading-relaxed font-light mb-8 md:mb-12 px-4" data-lang-ru="Бронирование рекомендуется и может быть сделано за 60 дней вперед. Мы приветствуем компании от двух до шести гостей в нашем основном зале." data-lang-en="Reservations are recommended and can be made up to 60 days in advance. We welcome parties of two to six guests in our main dining room.">
-                    Бронирование рекомендуется и может быть сделано за 60 дней вперед. Мы приветствуем компании от двух до шести гостей в нашем основном зале.
-                </p>
-                </div>
+                <p class="text-sm sm:text-base md:text-lg text-[#f5f1e8]/70 max-w-2xl mx-auto leading-relaxed font-light mb-8 md:mb-12 px-4" data-lang-ru="Бронирование рекомендуется и может быть сделано за 60 дней вперед. Мы приветствуем компании от одного до шести гостей в нашем основном зале." data-lang-en="Reservations are recommended and can be made up to 60 days in advance. We welcome parties of one to six guests in our main dining room.">
+                    Бронирование рекомендуется и может быть сделано за 60 дней вперед. Мы приветствуем компании от одного до шести гостей в нашем основном зале.
+            </p>
+        </div>
 
-            <div class="bg-[#1a1a1a] border border-[#b8985f]/20 p-4 sm:p-8 md:p-12 mb-6 md:mb-10">
+            <form id="reservation-form" class="bg-[#1a1a1a] border border-[#b8985f]/20 p-4 sm:p-8 md:p-12 mb-6 md:mb-10">
+                <div id="form-message" class="hidden mb-6 p-6 border border-[#b8985f]/20 bg-[#0f0f0f]/80 backdrop-blur-sm">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 mt-0.5">
+                            <i class="form-message-icon text-xl"></i>
+                    </div>
+                        <div class="flex-1">
+                            <p class="form-message-text text-sm font-light leading-relaxed"></p>
+                    </div>
+                        <button class="form-message-close flex-shrink-0 text-[#f5f1e8]/40 hover:text-[#b8985f] transition-colors duration-300" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                </div>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 md:mb-8">
                     <div>
                         <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="ДАТА" data-lang-en="DATE">ДАТА</label>
-                        <input type="date" class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] focus:outline-none focus:border-[#b8985f] transition-colors">
+                        <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] focus:outline-none focus:border-[#b8985f] transition-colors">
                     </div>
                     <div>
                         <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="ВРЕМЯ" data-lang-en="TIME">ВРЕМЯ</label>
-                        <select class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] focus:outline-none focus:border-[#b8985f] transition-colors">
-                            <option>18:00</option>
-                            <option>18:30</option>
-                            <option>19:00</option>
-                            <option>19:30</option>
-                            <option>20:00</option>
-                            <option>20:30</option>
-                            <option>21:00</option>
+                        <select name="time" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] focus:outline-none focus:border-[#b8985f] transition-colors">
+                            <option value="" data-lang-ru="Выберите время" data-lang-en="Select time">Выберите время</option>
+                            <option value="18:00">18:00</option>
+                            <option value="18:30">18:30</option>
+                            <option value="19:00">19:00</option>
+                            <option value="19:30">19:30</option>
+                            <option value="20:00">20:00</option>
+                            <option value="20:30">20:30</option>
+                            <option value="21:00">21:00</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="ГОСТИ" data-lang-en="GUESTS">ГОСТИ</label>
-                        <select class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] focus:outline-none focus:border-[#b8985f] transition-colors">
-                            <option data-lang-ru="1 Гость" data-lang-en="1 Guest">1 Гость</option>
-                            <option data-lang-ru="2 Гостя" data-lang-en="2 Guests">2 Гостя</option>
-                            <option data-lang-ru="3 Гостя" data-lang-en="3 Guests">3 Гостя</option>
-                            <option data-lang-ru="4 Гостя" data-lang-en="4 Guests">4 Гостя</option>
-                            <option data-lang-ru="5 Гостей" data-lang-en="5 Guests">5 Гостей</option>
-                            <option data-lang-ru="6 Гостей" data-lang-en="6 Guests">6 Гостей</option>
+                        <select name="guests" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] focus:outline-none focus:border-[#b8985f] transition-colors">
+                            <option value="" data-lang-ru="Выберите количество" data-lang-en="Select number">Выберите количество</option>
+                            <option value="1" data-lang-ru="1 Гость" data-lang-en="1 Guest">1 Гость</option>
+                            <option value="2" data-lang-ru="2 Гостя" data-lang-en="2 Guests">2 Гостя</option>
+                            <option value="3" data-lang-ru="3 Гостя" data-lang-en="3 Guests">3 Гостя</option>
+                            <option value="4" data-lang-ru="4 Гостя" data-lang-en="4 Guests">4 Гостя</option>
+                            <option value="5" data-lang-ru="5 Гостей" data-lang-en="5 Guests">5 Гостей</option>
+                            <option value="6" data-lang-ru="6 Гостей" data-lang-en="6 Guests">6 Гостей</option>
                         </select>
                     </div>
                 </div>
@@ -561,28 +721,28 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 md:mb-8">
                     <div>
                         <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="ИМЯ" data-lang-en="NAME">ИМЯ</label>
-                        <input type="text" placeholder="Полное имя" data-placeholder-ru="Полное имя" data-placeholder-en="Full Name" class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors">
+                        <input type="text" name="name" placeholder="Полное имя" data-placeholder-ru="Полное имя" data-placeholder-en="Full Name" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors">
                     </div>
-                <div>
+                    <div>
                         <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="ТЕЛЕФОН" data-lang-en="PHONE">ТЕЛЕФОН</label>
-                        <input type="tel" placeholder="+7 495 123 4567" data-placeholder-ru="+7 495 123 4567" data-placeholder-en="+7 XXX XXX XXXX" class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors">
+                        <input type="tel" name="phone" placeholder="+7 495 123 4567" data-placeholder-ru="+7 495 123 4567" data-placeholder-en="+7 XXX XXX XXXX" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors">
                     </div>
-                </div>
+                    </div>
 
                 <div class="mb-6 md:mb-8">
                     <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="EMAIL" data-lang-en="EMAIL">EMAIL</label>
-                    <input type="email" placeholder="email@example.com" class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors">
+                    <input type="email" name="email" placeholder="email@example.com" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors">
                 </div>
 
                 <div class="mb-6 md:mb-8">
                     <label class="block text-xs tracking-wider text-[#f5f1e8]/70 mb-3" data-lang-ru="ОСОБЫЕ ПРОСЬБЫ (НЕОБЯЗАТЕЛЬНО)" data-lang-en="SPECIAL REQUESTS (OPTIONAL)">ОСОБЫЕ ПРОСЬБЫ (НЕОБЯЗАТЕЛЬНО)</label>
-                    <textarea rows="4" placeholder="Диетические ограничения, аллергии или особые случаи" data-placeholder-ru="Диетические ограничения, аллергии или особые случаи" data-placeholder-en="Dietary restrictions, allergies, or special occasions" class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors resize-none"></textarea>
+                    <textarea name="message" rows="4" placeholder="Диетические ограничения, аллергии или особые случаи" data-placeholder-ru="Диетические ограничения, аллергии или особые случаи" data-placeholder-en="Dietary restrictions, allergies, or special occasions" class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] placeholder-[#f5f1e8]/30 focus:outline-none focus:border-[#b8985f] transition-colors resize-none"></textarea>
                 </div>
-                
-                <a href="reservation.html" class="btn-primary w-full inline-block px-12 py-4 bg-[#b8985f] text-[#1a1a1a] text-sm tracking-[0.2em] font-medium text-center" data-lang-ru="ПОДТВЕРДИТЬ БРОНИРОВАНИЕ" data-lang-en="CONFIRM RESERVATION">
+
+                <button type="submit" class="btn-primary w-full px-12 py-4 bg-[#b8985f] text-[#1a1a1a] text-sm tracking-[0.2em] font-medium" data-lang-ru="ПОДТВЕРДИТЬ БРОНИРОВАНИЕ" data-lang-en="CONFIRM RESERVATION">
                     ПОДТВЕРДИТЬ БРОНИРОВАНИЕ
-                </a>
-        </div>
+                    </button>
+            </form>
 
             <div class="text-sm text-[#f5f1e8]/50 leading-relaxed">
                 <p class="mb-2" data-lang-ru="Для компаний более шести гостей или запросов о частных ужинах, пожалуйста, свяжитесь с нами напрямую." data-lang-en="For parties larger than six guests or private dining inquiries, please contact us directly.">
@@ -605,16 +765,16 @@
                     </p>
                 </div>
                 
-                <div>
+            <div>
                     <h4 class="text-xs tracking-[0.3em] text-[#b8985f] mb-6" data-lang-ru="АДРЕС" data-lang-en="ADDRESS">АДРЕС</h4>
                     <p class="text-sm text-[#f5f1e8]/70 leading-relaxed font-light">
                         Тверская улица, 12<br/>
                         Москва, 125009<br/>
                         Российская Федерация
-                    </p>
-                </div>
+                </p>
+            </div>
                 
-                <div>
+            <div>
                     <h4 class="text-xs tracking-[0.3em] text-[#b8985f] mb-6" data-lang-ru="ЧАСЫ РАБОТЫ" data-lang-en="HOURS">ЧАСЫ РАБОТЫ</h4>
                     <div class="text-sm text-[#f5f1e8]/70 space-y-2 font-light">
                         <p data-lang-ru="Вторник – Суббота" data-lang-en="Tuesday – Saturday">Вторник – Суббота</p>
@@ -622,9 +782,9 @@
                         <p class="pt-2" data-lang-ru="Воскресенье и Понедельник" data-lang-en="Sunday & Monday">Воскресенье и Понедельник</p>
                         <p data-lang-ru="Закрыто" data-lang-en="Closed">Закрыто</p>
             </div>
-                </div>
+            </div>
                 
-                <div>
+            <div>
                     <h4 class="text-xs tracking-[0.3em] text-[#b8985f] mb-6" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</h4>
                     <div class="text-sm text-[#f5f1e8]/70 space-y-3 font-light">
                         <p>+7 495 123 4567</p>
@@ -638,9 +798,9 @@
                             </a>
                 </div>
             </div>
+            </div>
         </div>
-    </div>
-            
+
             <div class="divider-gold mb-8"></div>
             
             <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#f5f1e8]/40">
@@ -665,12 +825,30 @@
             currentLang = lang;
             document.documentElement.lang = lang;
             
-            // Обновляем все элементы с data-атрибутами
+            // Обновляем все элементы с data-атрибутами (кроме названия ресторана)
             document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
+                // Пропускаем название ресторана - оно всегда на английском
+                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                    return;
+                }
+                // Проверяем, содержит ли атрибут HTML теги (например, <br/>)
+                const ruValue = element.getAttribute('data-lang-ru') || '';
+                const enValue = element.getAttribute('data-lang-en') || '';
+                const hasHtmlTags = ruValue.includes('<') || enValue.includes('<');
+                
                 if (lang === 'ru') {
-                    element.textContent = element.getAttribute('data-lang-ru');
+                    // Используем innerHTML если есть HTML теги, иначе textContent
+                    if (hasHtmlTags) {
+                        element.innerHTML = ruValue;
+                    } else {
+                        element.textContent = ruValue;
+                    }
                 } else {
-                    element.textContent = element.getAttribute('data-lang-en');
+                    if (hasHtmlTags) {
+                        element.innerHTML = enValue;
+                    } else {
+                        element.textContent = enValue;
+                    }
                 }
             });
             
@@ -692,32 +870,21 @@
                 }
             });
             
-            // Обновляем стили кнопок языка
-            const langRuBtns = document.querySelectorAll('#lang-ru, #lang-ru-mobile');
-            const langEnBtns = document.querySelectorAll('#lang-en, #lang-en-mobile');
-            
-            if (lang === 'ru') {
-                langRuBtns.forEach(btn => {
-                    btn.classList.remove('text-[#f5f1e8]/60');
-                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
-                });
-                langEnBtns.forEach(btn => {
-                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
-                    btn.classList.add('text-[#f5f1e8]/60');
-                });
-            } else {
-                langEnBtns.forEach(btn => {
-                    btn.classList.remove('text-[#f5f1e8]/60');
-                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
-                });
-                langRuBtns.forEach(btn => {
-                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
-                    btn.classList.add('text-[#f5f1e8]/60');
-                });
-            }
+            // Обновляем текст кнопок переключения языка (показываем активный язык)
+            const langToggleBtns = document.querySelectorAll('#lang-toggle, #lang-toggle-mobile, #lang-toggle-mobile-menu');
+            langToggleBtns.forEach(btn => {
+                btn.textContent = lang === 'ru' ? 'RU' : 'EN';
+            });
             
             // Сохраняем выбор языка в localStorage
             localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Функция переключения языка (переключает между ru и en)
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang || 'ru';
+            const newLang = currentLang === 'ru' ? 'en' : 'ru';
+            switchLanguage(newLang);
         }
         
         // Загружаем сохраненный язык при загрузке страницы
@@ -726,17 +893,11 @@
             switchLanguage(savedLang);
         }
         
-        // Обработчики для кнопок переключения языка
-        document.getElementById('lang-ru')?.addEventListener('click', () => switchLanguage('ru'));
-        document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
-        document.getElementById('lang-ru-mobile')?.addEventListener('click', () => {
-            switchLanguage('ru');
-            // Закрываем мобильное меню после переключения
-            document.getElementById('mobile-nav')?.classList.add('hidden');
-            document.body.style.overflow = '';
-        });
-        document.getElementById('lang-en-mobile')?.addEventListener('click', () => {
-            switchLanguage('en');
+        // Обработчики для кнопок переключения языка (одна кнопка для всех)
+        document.getElementById('lang-toggle')?.addEventListener('click', toggleLanguage);
+        document.getElementById('lang-toggle-mobile')?.addEventListener('click', toggleLanguage);
+        document.getElementById('lang-toggle-mobile-menu')?.addEventListener('click', () => {
+            toggleLanguage();
             // Закрываем мобильное меню после переключения
             document.getElementById('mobile-nav')?.classList.add('hidden');
             document.body.style.overflow = '';
@@ -749,6 +910,7 @@
         
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.style.display = '';
                 mobileNav.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             });
@@ -761,12 +923,29 @@
             });
         }
         
-        // Закрытие меню при клике на ссылку
+        // Закрытие меню при клике на ссылку (мгновенно, с программным переходом)
         const mobileLinks = mobileNav.querySelectorAll('a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Пропускаем якорные ссылки (они начинаются с #)
+                if (href && href.startsWith('#')) {
+                    return;
+                }
+                
+                // Предотвращаем стандартный переход
+                e.preventDefault();
+                
+                // Мгновенно закрываем меню (убираем из видимости напрямую)
+                mobileNav.style.display = 'none';
                 mobileNav.classList.add('hidden');
                 document.body.style.overflow = '';
+                
+                // Сразу переходим на новую страницу
+                if (href) {
+                    window.location.href = href;
+                }
             });
         });
         
@@ -783,7 +962,196 @@
             }
         });
     });
-</script>
-    <!-- Подключение SCSS стилей через main.js -->
+
+        // Обработка формы бронирования
+        const reservationForm = document.getElementById('reservation-form');
+        const formMessage = document.getElementById('form-message');
+        
+        if (reservationForm) {
+            // Установка минимальной даты для поля даты (сегодня)
+            const dateInput = document.getElementById('reservation-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+            
+            reservationForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Получаем данные формы
+                const formData = new FormData(reservationForm);
+                const data = {
+                    date: formData.get('date'),
+                    time: formData.get('time'),
+                    guests: formData.get('guests'),
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    message: formData.get('message')
+                };
+                
+                // Валидация
+                if (!data.date || !data.time || !data.guests || !data.name || !data.phone || !data.email) {
+                    showFormMessage('Пожалуйста, заполните все обязательные поля', 'error');
+                    return;
+                }
+                
+                // Валидация email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    showFormMessage('Пожалуйста, введите корректный email адрес', 'error');
+                    return;
+                }
+                
+                // Валидация телефона (базовая)
+                const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+                if (!phoneRegex.test(data.phone) || data.phone.length < 10) {
+                    showFormMessage('Пожалуйста, введите корректный номер телефона', 'error');
+                    return;
+                }
+                
+                // Валидация даты (не должна быть в прошлом)
+                const selectedDate = new Date(data.date);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate < today) {
+                    showFormMessage('Дата бронирования не может быть в прошлом', 'error');
+                    return;
+                }
+                
+                // Отправка формы
+                try {
+                    const submitButton = reservationForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    const originalClasses = submitButton.className;
+                    
+                    // Показываем сообщение о процессе
+                    showFormMessage(
+                        currentLang === 'ru' ? 'Отправка запроса...' : 'Sending request...',
+                        'info'
+                    );
+                    
+                    // Стилизуем кнопку в процессе отправки
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = currentLang === 'ru' 
+                        ? '<span class="inline-flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i>ОТПРАВКА...</span>' 
+                        : '<span class="inline-flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i>SENDING...</span>';
+                    submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+                    
+                    // Здесь должен быть реальный API endpoint
+                    // Для демонстрации используем setTimeout
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    // Сохраняем в localStorage для демонстрации
+                    const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+                    reservations.push({
+                        ...data,
+                        id: Date.now(),
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('reservations', JSON.stringify(reservations));
+                    
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Спасибо! Ваш запрос на бронирование отправлен. Мы свяжемся с вами в ближайшее время.' 
+                            : 'Thank you! Your reservation request has been sent. We will contact you shortly.',
+                        'success'
+                    );
+                    reservationForm.reset();
+                    
+                    // Восстанавливаем кнопку
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.className = originalClasses;
+                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                    
+                } catch (error) {
+                    console.error('Ошибка отправки формы:', error);
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567' 
+                            : 'An error occurred while sending the request. Please try again later or contact us by phone: +7 495 123 4567',
+                        'error'
+                    );
+                    const submitButton = reservationForm.querySelector('button[type="submit"]');
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.className = originalClasses;
+                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                }
+            });
+        }
+        
+        // Функция для отображения сообщений формы в премиальном стиле
+        function showFormMessage(message, type) {
+            if (!formMessage) return;
+            
+            const messageText = formMessage.querySelector('.form-message-text');
+            const messageIcon = formMessage.querySelector('.form-message-icon');
+            const closeBtn = formMessage.querySelector('.form-message-close');
+            
+            if (!messageText || !messageIcon) return;
+            
+            // Устанавливаем текст сообщения
+            messageText.textContent = message;
+            
+            // Удаляем все классы стилей
+            formMessage.classList.remove('hidden', 'border-[#b8985f]/20', 'border-[#b8985f]/40', 'border-[#b8985f]/60', 'text-[#b8985f]', 'text-[#f5f1e8]', 'text-[#f5f1e8]/90');
+            messageIcon.classList.remove('fa-check-circle', 'fa-exclamation-circle', 'fa-info-circle', 'fa-spinner', 'fa-spin', 'text-[#b8985f]', 'text-[#f5f1e8]/70', 'text-[#f5f1e8]/50');
+            
+            // Применяем стили в зависимости от типа
+            if (type === 'success') {
+                formMessage.classList.add('border-[#b8985f]/40', 'text-[#b8985f]');
+                messageIcon.classList.add('fas', 'fa-check-circle', 'text-[#b8985f]');
+            } else if (type === 'error') {
+                formMessage.classList.add('border-[#b8985f]/30', 'text-[#f5f1e8]/90');
+                messageIcon.classList.add('fas', 'fa-exclamation-circle', 'text-[#f5f1e8]/70');
+            } else {
+                formMessage.classList.add('border-[#b8985f]/20', 'text-[#f5f1e8]');
+                messageIcon.classList.add('fas', 'fa-spinner', 'fa-spin', 'text-[#b8985f]');
+            }
+            
+            // Обработчик закрытия
+            if (closeBtn) {
+                closeBtn.onclick = () => {
+                    formMessage.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    formMessage.style.opacity = '0';
+                    formMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                        formMessage.style.opacity = '';
+                        formMessage.style.transform = '';
+                    }, 400);
+                };
+            }
+            
+            // Показываем сообщение с анимацией
+            formMessage.classList.remove('hidden');
+            formMessage.style.opacity = '0';
+            formMessage.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                formMessage.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                formMessage.style.opacity = '1';
+                formMessage.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // Прокрутка к сообщению
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Автоматически скрыть через 6 секунд (только для success и error)
+            if (type !== 'info') {
+                setTimeout(() => {
+                    formMessage.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    formMessage.style.opacity = '0';
+                    formMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                        formMessage.style.opacity = '';
+                        formMessage.style.transform = '';
+                    }, 400);
+                }, 6000);
+            }
+        }
+    </script>
 </body>
 </html>
