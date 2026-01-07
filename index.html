@@ -148,7 +148,13 @@
         .mobile-menu {
             display: none;
         }
-        @media (max-width: 768px) {
+        
+        /* Улучшенная адаптивность - больше брейкпоинтов */
+        @media (max-width: 640px) {
+            /* Малые мобильные устройства */
+            body {
+                font-size: 14px;
+            }
             .mobile-menu {
                 display: block;
             }
@@ -157,10 +163,67 @@
             }
         }
         
-        /* Адаптивные изображения */
+        @media (min-width: 641px) and (max-width: 768px) {
+            /* Большие мобильные устройства и маленькие планшеты */
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-nav {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            /* Планшеты */
+            .mobile-menu {
+                display: none;
+            }
+            .desktop-nav {
+                display: flex;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            /* Десктоп */
+            .mobile-menu {
+                display: none;
+            }
+            .desktop-nav {
+                display: flex;
+            }
+        }
+        
+        /* Плавные переходы для всех интерактивных элементов */
+        a, button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Адаптивные изображения с оптимизацией */
         img {
             max-width: 100%;
             height: auto;
+            display: block;
+        }
+        
+        /* Адаптивные отступы */
+        @media (max-width: 640px) {
+            .px-4 { padding-left: 1rem; padding-right: 1rem; }
+            .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        }
+        
+        /* Адаптивные размеры шрифтов */
+        @media (max-width: 640px) {
+            .text-xs { font-size: 0.625rem; }
+            .text-sm { font-size: 0.75rem; }
+            .text-base { font-size: 0.875rem; }
+        }
+        
+        /* Улучшенная видимость на touch-устройствах */
+        @media (hover: none) and (pointer: coarse) {
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
         }
     </style>
 </head>
@@ -190,16 +253,12 @@
                     <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
                     <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
                     <div class="h-6 w-px bg-[#b8985f]/30"></div>
-                    <button id="lang-en" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer text-xs lg:text-sm">EN</button>
-                    <button id="lang-ru" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-xs lg:text-sm">RU</button>
+                    <button id="lang-toggle" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-xs lg:text-sm">RU</button>
                 </nav>
                 
                 <!-- Мобильная кнопка языка и меню -->
                 <div class="flex items-center space-x-4 md:hidden">
-                    <div class="flex space-x-2">
-                        <button id="lang-en-mobile-header" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer text-sm">EN</button>
-                        <button id="lang-ru-mobile-header" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
-                    </div>
+                    <button id="lang-toggle-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
                     <button id="mobile-menu-btn" class="mobile-menu text-[#b8985f] text-2xl">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -217,10 +276,7 @@
                 <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
                 <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
                 <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
-                <div class="flex space-x-4">
-                    <button id="lang-en-mobile" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
-                    <button id="lang-ru-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
-                </div>
+                <button id="lang-toggle-mobile-menu" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
             </nav>
             
             <div class="flex-1 flex items-center justify-center px-4 sm:px-8 md:px-16 pt-20 md:pt-0">
@@ -887,9 +943,9 @@
             });
             
             // Обновляем текст кнопок переключения языка (показываем активный язык)
-            const langToggleBtns = document.querySelectorAll('#lang-toggle, #lang-toggle-mobile, #lang-toggle-mobile-menu');
-            langToggleBtns.forEach(btn => {
-                btn.textContent = lang === 'ru' ? 'RU' : 'EN';
+            const langText = lang === 'ru' ? 'RU' : 'EN';
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile, #lang-toggle-mobile-menu').forEach(btn => {
+                if (btn) btn.textContent = langText;
             });
             
             // Сохраняем выбор языка в localStorage
@@ -909,14 +965,44 @@
             switchLanguage(savedLang);
         }
         
+        // Обновляем текст кнопок при загрузке страницы
+        function updateLangButtons() {
+            const lang = currentLang || document.documentElement.lang || 'ru';
+            const langText = lang === 'ru' ? 'RU' : 'EN';
+            
+            document.getElementById('lang-toggle')?.setAttribute('textContent', langText);
+            document.getElementById('lang-toggle-mobile')?.setAttribute('textContent', langText);
+            document.getElementById('lang-toggle-mobile-menu')?.setAttribute('textContent', langText);
+            
+            // Обновляем текст кнопок
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile, #lang-toggle-mobile-menu').forEach(btn => {
+                if (btn) btn.textContent = langText;
+            });
+        }
+        
         // Обработчики для кнопок переключения языка (одна кнопка для всех)
-        document.getElementById('lang-toggle')?.addEventListener('click', toggleLanguage);
-        document.getElementById('lang-toggle-mobile')?.addEventListener('click', toggleLanguage);
-        document.getElementById('lang-toggle-mobile-menu')?.addEventListener('click', () => {
-            toggleLanguage();
-            // Закрываем мобильное меню после переключения
-            document.getElementById('mobile-nav')?.classList.add('hidden');
-            document.body.style.overflow = '';
+        document.addEventListener('DOMContentLoaded', () => {
+            // Обновляем кнопки при загрузке
+            updateLangButtons();
+            
+            // Обработчики кликов
+            document.getElementById('lang-toggle')?.addEventListener('click', () => {
+                toggleLanguage();
+                updateLangButtons();
+            });
+            
+            document.getElementById('lang-toggle-mobile')?.addEventListener('click', () => {
+                toggleLanguage();
+                updateLangButtons();
+            });
+            
+            document.getElementById('lang-toggle-mobile-menu')?.addEventListener('click', () => {
+                toggleLanguage();
+                updateLangButtons();
+                // Закрываем мобильное меню после переключения (опционально)
+                // document.getElementById('mobile-nav')?.classList.add('hidden');
+                // document.body.style.overflow = '';
+            });
         });
         
         // Открытие/закрытие мобильного меню
