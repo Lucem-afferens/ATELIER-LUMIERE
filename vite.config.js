@@ -20,8 +20,15 @@ export default defineConfig({
     outDir: 'dist',
     // Очищать dist перед сборкой
     emptyOutDir: true,
-    // Минифицировать код
+    // Минифицировать код (esbuild - самый быстрый, автоматически используется)
     minify: true,
+    // Увеличиваем лимит для предупреждений о размере чанка
+    chunkSizeWarningLimit: 1000,
+    // Оптимизация сборки
+    cssMinify: true,
+    cssCodeSplit: true,
+    // Улучшенная оптимизация ресурсов
+    assetsInlineLimit: 4096, // Инлайнить маленькие файлы (< 4KB)
     // Настройки сборки для многостраничного приложения
     rollupOptions: {
       // Входные точки - все HTML файлы в корне проекта
