@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/copy-favicon.js",
+    "build": "vite build",
     "copy-favicon": "node scripts/copy-favicon.js",
     "preview": "vite preview"
   },
