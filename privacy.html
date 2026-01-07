@@ -102,10 +102,16 @@
             <button id="lang-ru" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
         </nav>
         
-        <!-- Мобильная кнопка меню -->
-        <button id="mobile-menu-btn" class="mobile-menu md:hidden text-[#b8985f] text-2xl">
-            <i class="fas fa-bars"></i>
-        </button>
+        <!-- Мобильная кнопка языка и меню -->
+        <div class="flex items-center space-x-4 md:hidden">
+            <div class="flex space-x-2">
+                <button id="lang-en-mobile-header" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer text-sm">EN</button>
+                <button id="lang-ru-mobile-header" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
+            </div>
+            <button id="mobile-menu-btn" class="mobile-menu text-[#b8985f] text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
     
     <!-- Мобильное меню -->
