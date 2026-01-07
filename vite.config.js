@@ -9,29 +9,46 @@ const __dirname = dirname(__filename)
 
 // Плагин для копирования статических файлов в dist
 // Копирует favicon и другие статические файлы (robots.txt, sitemap.xml)
+// Использует closeBundle для гарантированного выполнения после полной записи всех файлов
 function copyStaticFilesPlugin() {
   return {
     name: 'copy-static-files',
-    writeBundle() {
-      // Выполняется после завершения сборки всех бандлов
+    closeBundle() {
+      // Выполняется ПОСЛЕ полного завершения записи всех бандлов и закрытия bundle
+      // Это гарантирует, что папка dist уже создана и все файлы записаны
       try {
+        const distDir = resolve(__dirname, 'dist')
+        
+        // Проверяем, что dist существует
+        if (!statSync(distDir).isDirectory()) {
+          console.error('❌ Папка dist не найдена!')
+          process.exit(1)
+        }
+        
+        console.log('📁 Папка dist существует, начинаем копирование статических файлов...')
+        
         // Копируем favicon из public/favicon в dist/favicon
         const faviconSourceDir = resolve(__dirname, 'public/favicon')
         const faviconTargetDir = resolve(__dirname, 'dist/favicon')
         
-        if (statSync(faviconSourceDir).isDirectory()) {
-          mkdirSync(faviconTargetDir, { recursive: true })
-          const files = readdirSync(faviconSourceDir)
-          files.forEach(file => {
-            const sourcePath = resolve(faviconSourceDir, file)
-            const targetPath = resolve(faviconTargetDir, file)
-            const stat = statSync(sourcePath)
-            
-            if (stat.isFile()) {
-              copyFileSync(sourcePath, targetPath)
-            }
-          })
-          console.log('✅ Favicon скопирован в dist/favicon/')
+        try {
+          if (statSync(faviconSourceDir).isDirectory()) {
+            mkdirSync(faviconTargetDir, { recursive: true })
+            const files = readdirSync(faviconSourceDir)
+            files.forEach(file => {
+              const sourcePath = resolve(faviconSourceDir, file)
+              const targetPath = resolve(faviconTargetDir, file)
+              const stat = statSync(sourcePath)
+              
+              if (stat.isFile()) {
+                copyFileSync(sourcePath, targetPath)
+              }
+            })
+            console.log('✅ Favicon скопирован в dist/favicon/')
+          }
+        } catch (error) {
+          console.warn('⚠️  Не удалось скопировать favicon:', error.message)
+          // Не прерываем сборку - favicon не критичен
         }
         
         // Копируем robots.txt и sitemap.xml в корень dist
@@ -48,9 +65,19 @@ function copyStaticFilesPlugin() {
             // Файл не существует - это нормально, пропускаем
           }
         })
+        
+        // Финальная проверка - убеждаемся, что dist содержит файлы
+        const distFiles = readdirSync(distDir)
+        if (distFiles.length === 0) {
+          console.error('❌ Папка dist пуста после сборки!')
+          process.exit(1)
+        }
+        
+        console.log(`✅ Сборка завершена успешно. В dist найдено ${distFiles.length} элементов.`)
       } catch (error) {
-        console.warn('⚠️  Не удалось скопировать статические файлы:', error.message)
-        // Не прерываем сборку
+        console.error('❌ Критическая ошибка при копировании статических файлов:', error.message)
+        console.error('❌ Стек ошибки:', error.stack)
+        process.exit(1)
       }
     }
   }
