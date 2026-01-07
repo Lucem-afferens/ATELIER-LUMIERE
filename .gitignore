@@ -7,8 +7,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Собранные файлы (production build)
-dist/
-dist-ssr/
 *.local
 
 # Кеш и временные файлы
