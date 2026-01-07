@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Винная Карта — Ателье Люмьер | Коллекция вин ресторана</title>
+    <meta name="description" content="Винная карта ресторана Ателье Люмьер. Более 800 наименований из 15 стран. Редкие винтажи и вина малых производителей. Консультация сомелье.">
+    <meta name="keywords" content="винная карта, вина ресторана, сомелье Москва, коллекция вин, Ателье Люмьер вина">
+    <meta name="author" content="Ателье Люмьер">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://atelierlumiere.ru/wine.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="restaurant.menu">
+    <meta property="og:url" content="https://atelierlumiere.ru/wine.html">
+    <meta property="og:title" content="Винная Карта — Ателье Люмьер | Коллекция вин ресторана">
+    <meta property="og:description" content="Винная карта ресторана Ателье Люмьер. Более 800 наименований из 15 стран. Редкие винтажи и вина малых производителей.">
+    <meta property="og:image" content="https://atelierlumiere.ru/images/wine-og.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://atelierlumiere.ru/wine.html">
+    <meta name="twitter:title" content="Винная Карта — Ателье Люмьер">
+    <meta name="twitter:description" content="Коллекция вин ресторана высокой кухни в Москве">
+    <meta name="twitter:image" content="https://atelierlumiere.ru/images/wine-og.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ATELIER LUMIÈRE" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Menu",
+      "name": "Винная карта Ателье Люмьер",
+      "url": "https://atelierlumiere.ru/wine.html",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://atelierlumiere.ru/wine.html"
+      },
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Красные вина",
+          "description": "Коллекция красных вин"
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Белые вина",
+          "description": "Коллекция белых вин"
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Игристые вина",
+          "description": "Шампанское и игристые вина"
+        }
+      ],
+      "provider": {
+        "@type": "Restaurant",
+        "name": "Ателье Люмьер",
+        "url": "https://atelierlumiere.ru"
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        ::-webkit-scrollbar { display: none;}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a1a;
+            color: #f5f1e8;
+        }
+        .font-display {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noise)"/%3E%3C/svg%3E');
+            z-index: 1;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-nav {
+                display: none;
+            }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="grain-overlay"></div>
+    <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex justify-between items-start fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
+        <div class="flex items-center space-x-4 md:space-x-12">
+            <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]">
+                ATELIER LUMIÈRE
+            </a>
+        </div>
+        
+        <!-- Десктопная навигация -->
+        <nav class="desktop-nav hidden md:flex items-center space-x-6 lg:space-x-10 text-xs lg:text-sm tracking-wider">
+            <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+            <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+            <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+            <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+            <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+            <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+            <div class="h-6 w-px bg-[#b8985f]/30"></div>
+            <button id="lang-en" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
+            <button id="lang-ru" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+        </nav>
+        
+        <!-- Мобильная кнопка меню -->
+        <button id="mobile-menu-btn" class="mobile-menu md:hidden text-[#b8985f] text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <!-- Мобильное меню -->
+    <nav id="mobile-nav" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-full bg-[#0a0a0a] z-50 flex flex-col items-center justify-center space-y-8 text-lg">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-[#b8985f] text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+        <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+        <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+        <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+        <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+        <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+        <div class="flex space-x-4">
+            <button id="lang-en-mobile" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
+            <button id="lang-ru-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+        </div>
+    </nav>
+
+    <section class="pt-20 pb-16 sm:pt-32 md:pt-40 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="font-display text-6xl mb-8 text-[#f5f1e8] text-center" data-lang-ru="Винная Карта" data-lang-en="Wine List">Винная Карта</h1>
+            
+            <div class="space-y-16 mt-16">
+                <div>
+                    <h2 class="font-display text-3xl mb-8 text-[#b8985f]" data-lang-ru="Красные Вина" data-lang-en="Red Wines">Красные Вина</h2>
+                    <div class="space-y-6">
+                        <div class="flex justify-between border-b border-[#b8985f]/20 pb-4">
+                            <div>
+                                <h3 class="text-xl mb-2">Château Margaux 2015</h3>
+                                <p class="text-sm text-[#f5f1e8]/60" data-lang-ru="Бордо, Франция" data-lang-en="Bordeaux, France">Бордо, Франция</p>
+                            </div>
+                            <div class="text-[#b8985f] text-xl">45 000₽</div>
+                        </div>
+                        <div class="flex justify-between border-b border-[#b8985f]/20 pb-4">
+                            <div>
+                                <h3 class="text-xl mb-2">Barolo Riserva 2014</h3>
+                                <p class="text-sm text-[#f5f1e8]/60" data-lang-ru="Пьемонт, Италия" data-lang-en="Piedmont, Italy">Пьемонт, Италия</p>
+                            </div>
+                            <div class="text-[#b8985f] text-xl">28 000₽</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-3xl mb-8 text-[#b8985f]" data-lang-ru="Белые Вина" data-lang-en="White Wines">Белые Вина</h2>
+                    <div class="space-y-6">
+                        <div class="flex justify-between border-b border-[#b8985f]/20 pb-4">
+                            <div>
+                                <h3 class="text-xl mb-2">Montrachet Grand Cru 2017</h3>
+                                <p class="text-sm text-[#f5f1e8]/60" data-lang-ru="Бургундия, Франция" data-lang-en="Burgundy, France">Бургундия, Франция</p>
+                            </div>
+                            <div class="text-[#b8985f] text-xl">52 000₽</div>
+                        </div>
+                        <div class="flex justify-between border-b border-[#b8985f]/20 pb-4">
+                            <div>
+                                <h3 class="text-xl mb-2">Chablis Premier Cru 2019</h3>
+                                <p class="text-sm text-[#f5f1e8]/60" data-lang-ru="Бургундия, Франция" data-lang-en="Burgundy, France">Бургундия, Франция</p>
+                            </div>
+                            <div class="text-[#b8985f] text-xl">15 000₽</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-3xl mb-8 text-[#b8985f]" data-lang-ru="Шампанское" data-lang-en="Champagne">Шампанское</h2>
+                    <div class="space-y-6">
+                        <div class="flex justify-between border-b border-[#b8985f]/20 pb-4">
+                            <div>
+                                <h3 class="text-xl mb-2">Dom Pérignon 2010</h3>
+                                <p class="text-sm text-[#f5f1e8]/60" data-lang-ru="Шампань, Франция" data-lang-en="Champagne, France">Шампань, Франция</p>
+                            </div>
+                            <div class="text-[#b8985f] text-xl">38 000₽</div>
+                        </div>
+                        <div class="flex justify-between border-b border-[#b8985f]/20 pb-4">
+                            <div>
+                                <h3 class="text-xl mb-2">Krug Grande Cuvée</h3>
+                                <p class="text-sm text-[#f5f1e8]/60" data-lang-ru="Шампань, Франция" data-lang-en="Champagne, France">Шампань, Франция</p>
+                            </div>
+                            <div class="text-[#b8985f] text-xl">42 000₽</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="contact.html" class="inline-block px-12 py-4 bg-[#b8985f] text-[#1a1a1a] text-sm tracking-[0.2em]" data-lang-ru="КОНСУЛЬТАЦИЯ СОМЕЛЬЕ" data-lang-en="SOMMELIER CONSULTATION">КОНСУЛЬТАЦИЯ СОМЕЛЬЕ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript для мобильного меню и переключения языка -->
+    <script>
+        // Текущий язык (по умолчанию русский)
+        let currentLang = 'ru';
+        
+        // Функция переключения языка
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Обновляем все элементы с data-атрибутами
+            document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
+                // Пропускаем название ресторана - оно всегда на английском
+                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                    return;
+                }
+                // Проверяем, содержит ли атрибут HTML теги (например, <br/>)
+                const ruValue = element.getAttribute('data-lang-ru') || '';
+                const enValue = element.getAttribute('data-lang-en') || '';
+                const hasHtmlTags = ruValue.includes('<') || enValue.includes('<');
+                
+                if (lang === 'ru') {
+                    // Используем innerHTML если есть HTML теги, иначе textContent
+                    if (hasHtmlTags) {
+                        element.innerHTML = ruValue;
+                    } else {
+                        element.textContent = ruValue;
+                    }
+                } else {
+                    if (hasHtmlTags) {
+                        element.innerHTML = enValue;
+                    } else {
+                        element.textContent = enValue;
+                    }
+                }
+            });
+            
+            // Обновляем placeholder для input и textarea
+            document.querySelectorAll('[data-placeholder-ru][data-placeholder-en]').forEach(element => {
+                if (lang === 'ru') {
+                    element.placeholder = element.getAttribute('data-placeholder-ru');
+                } else {
+                    element.placeholder = element.getAttribute('data-placeholder-en');
+                }
+            });
+            
+            // Обновляем опции select
+            document.querySelectorAll('select option[data-lang-ru][data-lang-en]').forEach(option => {
+                if (lang === 'ru') {
+                    option.textContent = option.getAttribute('data-lang-ru');
+                } else {
+                    option.textContent = option.getAttribute('data-lang-en');
+                }
+            });
+            
+            // Обновляем стили кнопок языка
+            const langRuBtns = document.querySelectorAll('#lang-ru, #lang-ru-mobile');
+            const langEnBtns = document.querySelectorAll('#lang-en, #lang-en-mobile');
+            
+            if (lang === 'ru') {
+                langRuBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/60');
+                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
+                });
+                langEnBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
+                    btn.classList.add('text-[#f5f1e8]/60');
+                });
+            } else {
+                langEnBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/60');
+                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
+                });
+                langRuBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
+                    btn.classList.add('text-[#f5f1e8]/60');
+                });
+            }
+            
+            // Сохраняем выбор языка в localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Загружаем сохраненный язык при загрузке страницы
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && savedLang !== 'ru') {
+            switchLanguage(savedLang);
+        }
+        
+        // Обработчики для кнопок переключения языка
+        document.getElementById('lang-ru')?.addEventListener('click', () => switchLanguage('ru'));
+        document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('lang-ru-mobile')?.addEventListener('click', () => {
+            switchLanguage('ru');
+            document.getElementById('mobile-nav')?.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        document.getElementById('lang-en-mobile')?.addEventListener('click', () => {
+            switchLanguage('en');
+            document.getElementById('mobile-nav')?.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        
+        // Открытие/закрытие мобильного меню
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.style.display = '';
+                mobileNav.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Закрытие меню при клике на ссылку (мгновенно, с программным переходом)
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Пропускаем якорные ссылки (они начинаются с #)
+                if (href && href.startsWith('#')) {
+                    return;
+                }
+                
+                // Предотвращаем стандартный переход
+                e.preventDefault();
+                
+                // Мгновенно закрываем меню (убираем из видимости напрямую)
+                mobileNav.style.display = 'none';
+                mobileNav.classList.add('hidden');
+                document.body.style.overflow = '';
+                
+                // Сразу переходим на новую страницу
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

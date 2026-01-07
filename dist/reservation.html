@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование столика — Ателье Люмьер | Онлайн бронирование</title>
+    <meta name="description" content="Забронируйте столик в ресторане Ателье Люмьер онлайн. Выберите дату, время и количество гостей. Подтверждение бронирования в течение 24 часов.">
+    <meta name="keywords" content="бронирование столика, ресторан Москва, онлайн бронирование, Ателье Люмьер бронирование">
+    <meta name="author" content="Ателье Люмьер">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://atelierlumiere.ru/reservation.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="restaurant">
+    <meta property="og:url" content="https://atelierlumiere.ru/reservation.html">
+    <meta property="og:title" content="Бронирование столика — Ателье Люмьер | Онлайн бронирование">
+    <meta property="og:description" content="Забронируйте столик в ресторане Ателье Люмьер онлайн. Выберите дату, время и количество гостей.">
+    <meta property="og:image" content="https://atelierlumiere.ru/images/reservation-og.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://atelierlumiere.ru/reservation.html">
+    <meta name="twitter:title" content="Бронирование столика — Ателье Люмьер">
+    <meta name="twitter:description" content="Онлайн бронирование столика в ресторане высокой кухни">
+    <meta name="twitter:image" content="https://atelierlumiere.ru/images/reservation-og.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ATELIER LUMIÈRE" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ReservationAction",
+      "target": {
+        "@type": "Restaurant",
+        "name": "Ателье Люмьер",
+        "url": "https://atelierlumiere.ru",
+        "acceptsReservations": "True",
+        "telephone": "+7 495 123 4567"
+      },
+      "object": {
+        "@type": "Reservation",
+        "reservationFor": {
+          "@type": "Restaurant",
+          "name": "Ателье Люмьер"
+        }
+      }
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #1a1a1a; color: #f5f1e8; }
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        .btn-primary:hover { background: #c9a961; }
+        @media (max-width: 768px) { .desktop-nav { display: none; } }
+    </style>
+</head>
+<body>
+    <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex justify-between items-start fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
+        <div class="flex items-center space-x-4 md:space-x-12">
+            <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]">
+                ATELIER LUMIÈRE
+            </a>
+        </div>
+        
+        <!-- Десктопная навигация -->
+        <nav class="desktop-nav hidden md:flex items-center space-x-6 lg:space-x-10 text-xs lg:text-sm tracking-wider">
+            <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+            <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+            <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+            <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+            <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+            <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+            <div class="h-6 w-px bg-[#b8985f]/30"></div>
+            <button id="lang-en" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
+            <button id="lang-ru" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+        </nav>
+        
+        <!-- Мобильная кнопка меню -->
+        <button id="mobile-menu-btn" class="mobile-menu md:hidden text-[#b8985f] text-2xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+    
+    <!-- Мобильное меню -->
+    <nav id="mobile-nav" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-full bg-[#0a0a0a] z-50 flex flex-col items-center justify-center space-y-8 text-lg">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-[#b8985f] text-3xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+        <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+        <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+        <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+        <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+        <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+        <div class="flex space-x-4">
+            <button id="lang-en-mobile" class="text-[#f5f1e8]/60 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer">EN</button>
+            <button id="lang-ru-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium">RU</button>
+        </div>
+    </nav>
+
+    <section class="pt-20 pb-16 sm:pt-32 md:pt-40 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="font-display text-6xl mb-8 text-[#f5f1e8]" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">Забронируйте Стол</h1>
+            <form id="reservation-form-page" class="bg-[#1a1a1a] border border-[#b8985f]/20 p-12">
+                <div id="form-message" class="hidden mb-6 p-4 rounded text-sm"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                    <div>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ДАТА</label>
+                        <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ВРЕМЯ</label>
+                        <select name="time" id="reservation-time" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                            <option value="">Выберите время</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ГОСТИ" data-lang-en="GUESTS">ГОСТИ</label>
+                        <select name="guests" id="reservation-guests" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                            <option value="" data-lang-ru="Выберите количество" data-lang-en="Select number">Выберите количество</option>
+                            <option value="1" data-lang-ru="1 Гость" data-lang-en="1 Guest">1 Гость</option>
+                            <option value="2" data-lang-ru="2 Гостя" data-lang-en="2 Guests">2 Гостя</option>
+                            <option value="3" data-lang-ru="3 Гостя" data-lang-en="3 Guests">3 Гостя</option>
+                            <option value="4" data-lang-ru="4 Гостя" data-lang-en="4 Guests">4 Гостя</option>
+                            <option value="5" data-lang-ru="5 Гостей" data-lang-en="5 Guests">5 Гостей</option>
+                            <option value="6" data-lang-ru="6 Гостей" data-lang-en="6 Guests">6 Гостей</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ИМЯ</label>
+                        <input type="text" name="name" id="reservation-name" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ТЕЛЕФОН</label>
+                        <input type="tel" name="phone" id="reservation-phone" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                    </div>
+                </div>
+                <button type="submit" class="w-full px-12 py-4 bg-[#b8985f] text-[#1a1a1a] text-sm tracking-[0.2em] font-medium">ПОДТВЕРДИТЬ БРОНИРОВАНИЕ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- JavaScript для мобильного меню и переключения языка -->
+    <script>
+        // Текущий язык (по умолчанию русский)
+        let currentLang = 'ru';
+        
+        // Функция переключения языка
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Обновляем все элементы с data-атрибутами
+            document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
+                // Пропускаем название ресторана - оно всегда на английском
+                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                    return;
+                }
+                // Проверяем, содержит ли атрибут HTML теги (например, <br/>)
+                const ruValue = element.getAttribute('data-lang-ru') || '';
+                const enValue = element.getAttribute('data-lang-en') || '';
+                const hasHtmlTags = ruValue.includes('<') || enValue.includes('<');
+                
+                if (lang === 'ru') {
+                    // Используем innerHTML если есть HTML теги, иначе textContent
+                    if (hasHtmlTags) {
+                        element.innerHTML = ruValue;
+                    } else {
+                        element.textContent = ruValue;
+                    }
+                } else {
+                    if (hasHtmlTags) {
+                        element.innerHTML = enValue;
+                    } else {
+                        element.textContent = enValue;
+                    }
+                }
+            });
+            
+            // Обновляем placeholder для input и textarea
+            document.querySelectorAll('[data-placeholder-ru][data-placeholder-en]').forEach(element => {
+                if (lang === 'ru') {
+                    element.placeholder = element.getAttribute('data-placeholder-ru');
+                } else {
+                    element.placeholder = element.getAttribute('data-placeholder-en');
+                }
+            });
+            
+            // Обновляем опции select
+            document.querySelectorAll('select option[data-lang-ru][data-lang-en]').forEach(option => {
+                if (lang === 'ru') {
+                    option.textContent = option.getAttribute('data-lang-ru');
+                } else {
+                    option.textContent = option.getAttribute('data-lang-en');
+                }
+            });
+            
+            // Обновляем стили кнопок языка
+            const langRuBtns = document.querySelectorAll('#lang-ru, #lang-ru-mobile');
+            const langEnBtns = document.querySelectorAll('#lang-en, #lang-en-mobile');
+            
+            if (lang === 'ru') {
+                langRuBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/60');
+                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
+                });
+                langEnBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
+                    btn.classList.add('text-[#f5f1e8]/60');
+                });
+            } else {
+                langEnBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/60');
+                    btn.classList.add('text-[#f5f1e8]/80', 'font-medium');
+                });
+                langRuBtns.forEach(btn => {
+                    btn.classList.remove('text-[#f5f1e8]/80', 'font-medium');
+                    btn.classList.add('text-[#f5f1e8]/60');
+                });
+            }
+            
+            // Сохраняем выбор языка в localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Загружаем сохраненный язык при загрузке страницы
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang && savedLang !== 'ru') {
+            switchLanguage(savedLang);
+        }
+        
+        // Обработчики для кнопок переключения языка
+        document.getElementById('lang-ru')?.addEventListener('click', () => switchLanguage('ru'));
+        document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('lang-ru-mobile')?.addEventListener('click', () => {
+            switchLanguage('ru');
+            document.getElementById('mobile-nav')?.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        document.getElementById('lang-en-mobile')?.addEventListener('click', () => {
+            switchLanguage('en');
+            document.getElementById('mobile-nav')?.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+        
+        // Открытие/закрытие мобильного меню
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileNav.style.display = '';
+                mobileNav.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Закрытие меню при клике на ссылку (мгновенно, с программным переходом)
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                
+                // Пропускаем якорные ссылки (они начинаются с #)
+                if (href && href.startsWith('#')) {
+                    return;
+                }
+                
+                // Предотвращаем стандартный переход
+                e.preventDefault();
+                
+                // Мгновенно закрываем меню (убираем из видимости напрямую)
+                mobileNav.style.display = 'none';
+                mobileNav.classList.add('hidden');
+                document.body.style.overflow = '';
+                
+                // Сразу переходим на новую страницу
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+        
+        // Обработка формы бронирования
+        const reservationForm = document.getElementById('reservation-form-page');
+        const formMessage = document.getElementById('form-message');
+        
+        if (reservationForm) {
+            const dateInput = document.getElementById('reservation-date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.setAttribute('min', today);
+            }
+            
+            reservationForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(reservationForm);
+                const data = {
+                    date: formData.get('date'),
+                    time: formData.get('time'),
+                    guests: formData.get('guests'),
+                    name: formData.get('name'),
+                    phone: formData.get('phone')
+                };
+                
+                if (!data.date || !data.time || !data.guests || !data.name || !data.phone) {
+                    showFormMessage('Пожалуйста, заполните все обязательные поля', 'error');
+                    return;
+                }
+                
+                const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+                if (!phoneRegex.test(data.phone) || data.phone.length < 10) {
+                    showFormMessage('Пожалуйста, введите корректный номер телефона', 'error');
+                    return;
+                }
+                
+                const selectedDate = new Date(data.date);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selectedDate < today) {
+                    showFormMessage('Дата бронирования не может быть в прошлом', 'error');
+                    return;
+                }
+                
+                try {
+                    const submitButton = reservationForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    const originalClasses = submitButton.className;
+                    
+                    // Показываем сообщение о процессе
+                    showFormMessage('Отправка запроса...', 'info');
+                    
+                    // Стилизуем кнопку в процессе отправки
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<span class="inline-flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i>ОТПРАВКА...</span>';
+                    submitButton.classList.add('opacity-70', 'cursor-not-allowed');
+                    
+                    // Имитация отправки на сервер
+                    // В реальном проекте здесь должен быть fetch к API
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    // Сохраняем в localStorage для демонстрации
+                    // В реальном проекте данные должны отправляться на сервер
+                    const reservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+                    reservations.push({
+                        ...data,
+                        id: Date.now(),
+                        createdAt: new Date().toISOString()
+                    });
+                    localStorage.setItem('reservations', JSON.stringify(reservations));
+                    
+                    showFormMessage('Спасибо! Ваш запрос на бронирование отправлен. Мы свяжемся с вами в ближайшее время для подтверждения.', 'success');
+                    reservationForm.reset();
+                    
+                    // Сброс минимальной даты
+                    if (dateInput) {
+                        const today = new Date().toISOString().split('T')[0];
+                        dateInput.setAttribute('min', today);
+                    }
+                    
+                    // Восстанавливаем кнопку
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.className = originalClasses;
+                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                    
+                } catch (error) {
+                    console.error('Ошибка отправки формы:', error);
+                    showFormMessage('Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567', 'error');
+                    const submitButton = reservationForm.querySelector('button[type="submit"]');
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalText;
+                    submitButton.className = originalClasses;
+                    submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
+                }
+            });
+        }
+        
+        function showFormMessage(message, type) {
+            if (!formMessage) return;
+            
+            const messageText = formMessage.querySelector('.form-message-text');
+            const messageIcon = formMessage.querySelector('.form-message-icon');
+            const closeBtn = formMessage.querySelector('.form-message-close');
+            
+            if (!messageText || !messageIcon) return;
+            
+            // Устанавливаем текст сообщения
+            messageText.textContent = message;
+            
+            // Удаляем все классы стилей
+            formMessage.classList.remove('hidden', 'border-[#b8985f]/20', 'border-[#b8985f]/40', 'border-[#b8985f]/60', 'text-[#b8985f]', 'text-[#f5f1e8]', 'text-[#f5f1e8]/90');
+            messageIcon.classList.remove('fa-check-circle', 'fa-exclamation-circle', 'fa-info-circle', 'fa-spinner', 'fa-spin', 'text-[#b8985f]', 'text-[#f5f1e8]/70', 'text-[#f5f1e8]/50');
+            
+            // Применяем стили в зависимости от типа
+            if (type === 'success') {
+                formMessage.classList.add('border-[#b8985f]/40', 'text-[#b8985f]');
+                messageIcon.classList.add('fas', 'fa-check-circle', 'text-[#b8985f]');
+            } else if (type === 'error') {
+                formMessage.classList.add('border-[#b8985f]/30', 'text-[#f5f1e8]/90');
+                messageIcon.classList.add('fas', 'fa-exclamation-circle', 'text-[#f5f1e8]/70');
+            } else {
+                formMessage.classList.add('border-[#b8985f]/20', 'text-[#f5f1e8]');
+                messageIcon.classList.add('fas', 'fa-spinner', 'fa-spin', 'text-[#b8985f]');
+            }
+            
+            // Обработчик закрытия
+            if (closeBtn) {
+                closeBtn.onclick = () => {
+                    formMessage.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    formMessage.style.opacity = '0';
+                    formMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                        formMessage.style.opacity = '';
+                        formMessage.style.transform = '';
+                    }, 400);
+                };
+            }
+            
+            // Показываем сообщение с анимацией
+            formMessage.classList.remove('hidden');
+            formMessage.style.opacity = '0';
+            formMessage.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                formMessage.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                formMessage.style.opacity = '1';
+                formMessage.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // Прокрутка к сообщению
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Автоматически скрыть через 6 секунд (только для success и error)
+            if (type !== 'info') {
+                setTimeout(() => {
+                    formMessage.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    formMessage.style.opacity = '0';
+                    formMessage.style.transform = 'translateY(-10px)';
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                        formMessage.style.opacity = '';
+                        formMessage.style.transform = '';
+                    }, 400);
+                }, 6000);
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://atelierlumiere.ru/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/menu.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/menu.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/menu.html?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/wine.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/wine.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/wine.html?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/about.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/about.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/about.html?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/private-dining.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/private-dining.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/private-dining.html?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/contact.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/contact.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/contact.html?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/reservation.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://atelierlumiere.ru/reservation.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://atelierlumiere.ru/reservation.html?lang=en"/>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/privacy.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://atelierlumiere.ru/terms.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+</urlset>
+
