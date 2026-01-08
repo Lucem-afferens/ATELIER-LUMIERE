@@ -421,7 +421,13 @@
                     
                 } catch (error) {
                     console.error('Ошибка отправки формы:', error);
-                    showFormMessage('Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567', 'error');
+                    const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567' 
+                            : 'An error occurred while sending the request. Please try again later or contact us by phone: +7 495 123 4567',
+                        'error'
+                    );
                     const submitButton = reservationForm.querySelector('button[type="submit"]');
                     submitButton.disabled = false;
                     submitButton.textContent = originalText;

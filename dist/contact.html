@@ -372,15 +372,28 @@
                     message: formData.get('message')
                 };
                 
+                // Получаем текущий язык
+                const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                
                 // Валидация
                 if (!data.name || !data.email || !data.message) {
-                    showContactMessage('Пожалуйста, заполните все поля', 'error');
+                    showContactMessage(
+                        currentLang === 'ru' 
+                            ? 'Пожалуйста, заполните все поля' 
+                            : 'Please fill in all fields',
+                        'error'
+                    );
                     return;
                 }
                 
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(data.email)) {
-                    showContactMessage('Пожалуйста, введите корректный email адрес', 'error');
+                    showContactMessage(
+                        currentLang === 'ru' 
+                            ? 'Пожалуйста, введите корректный email адрес' 
+                            : 'Please enter a valid email address',
+                        'error'
+                    );
                     return;
                 }
                 
@@ -390,11 +403,18 @@
                     const originalClasses = submitButton.className;
                     
                     // Показываем сообщение о процессе
-                    showContactMessage('Отправка сообщения...', 'info');
+                    showContactMessage(
+                        currentLang === 'ru' 
+                            ? 'Отправка сообщения...' 
+                            : 'Sending message...',
+                        'info'
+                    );
                     
                     // Стилизуем кнопку в процессе отправки
                     submitButton.disabled = true;
-                    submitButton.innerHTML = '<span class="inline-flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i>ОТПРАВКА...</span>';
+                    submitButton.innerHTML = currentLang === 'ru' 
+                        ? '<span class="inline-flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i>ОТПРАВКА...</span>' 
+                        : '<span class="inline-flex items-center"><i class="fas fa-spinner fa-spin mr-2"></i>SENDING...</span>';
                     submitButton.classList.add('opacity-70', 'cursor-not-allowed');
                     
                     // Имитация отправки на сервер
@@ -411,7 +431,12 @@
                     });
                     localStorage.setItem('contacts', JSON.stringify(contacts));
                     
-                    showContactMessage('Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.', 'success');
+                    showContactMessage(
+                        currentLang === 'ru' 
+                            ? 'Спасибо! Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.' 
+                            : 'Thank you! Your message has been sent. We will contact you shortly.',
+                        'success'
+                    );
                     contactForm.reset();
                     
                     // Восстанавливаем кнопку
@@ -422,7 +447,13 @@
                     
                 } catch (error) {
                     console.error('Ошибка отправки формы:', error);
-                    showContactMessage('Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567', 'error');
+                    const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                    showContactMessage(
+                        currentLang === 'ru' 
+                            ? 'Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567' 
+                            : 'An error occurred while sending the message. Please try again later or contact us by phone: +7 495 123 4567',
+                        'error'
+                    );
                     const submitButton = contactForm.querySelector('button[type="submit"]');
                     submitButton.disabled = false;
                     submitButton.textContent = originalText;

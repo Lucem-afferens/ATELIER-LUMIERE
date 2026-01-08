@@ -1079,23 +1079,41 @@
                     message: formData.get('message')
                 };
                 
+                // Получаем текущий язык
+                const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                
                 // Валидация
                 if (!data.date || !data.time || !data.guests || !data.name || !data.phone || !data.email) {
-                    showFormMessage('Пожалуйста, заполните все обязательные поля', 'error');
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Пожалуйста, заполните все обязательные поля' 
+                            : 'Please fill in all required fields',
+                        'error'
+                    );
                     return;
                 }
                 
                 // Валидация email
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(data.email)) {
-                    showFormMessage('Пожалуйста, введите корректный email адрес', 'error');
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Пожалуйста, введите корректный email адрес' 
+                            : 'Please enter a valid email address',
+                        'error'
+                    );
                     return;
                 }
                 
                 // Валидация телефона (базовая)
                 const phoneRegex = /^[\d\s\+\-\(\)]+$/;
                 if (!phoneRegex.test(data.phone) || data.phone.length < 10) {
-                    showFormMessage('Пожалуйста, введите корректный номер телефона', 'error');
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Пожалуйста, введите корректный номер телефона' 
+                            : 'Please enter a valid phone number',
+                        'error'
+                    );
                     return;
                 }
                 
@@ -1104,7 +1122,12 @@
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
                 if (selectedDate < today) {
-                    showFormMessage('Дата бронирования не может быть в прошлом', 'error');
+                    showFormMessage(
+                        currentLang === 'ru' 
+                            ? 'Дата бронирования не может быть в прошлом' 
+                            : 'Reservation date cannot be in the past',
+                        'error'
+                    );
                     return;
                 }
                 
@@ -1113,6 +1136,9 @@
                     const submitButton = reservationForm.querySelector('button[type="submit"]');
                     const originalText = submitButton.textContent;
                     const originalClasses = submitButton.className;
+                    
+                    // Получаем текущий язык
+                    const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
                     
                     // Показываем сообщение о процессе
                     showFormMessage(
@@ -1156,6 +1182,7 @@
                     
                 } catch (error) {
                     console.error('Ошибка отправки формы:', error);
+                    const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
                     showFormMessage(
                         currentLang === 'ru' 
                             ? 'Произошла ошибка при отправке запроса. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону: +7 495 123 4567' 
