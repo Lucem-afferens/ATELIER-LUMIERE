@@ -141,13 +141,13 @@
                 <div id="form-message" class="hidden mb-6 p-4 rounded text-sm"></div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
                     <div>
-                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ДАТА</label>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ДАТА" data-lang-en="DATE">ДАТА</label>
                         <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
                     </div>
                     <div>
-                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ВРЕМЯ</label>
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ВРЕМЯ" data-lang-en="TIME">ВРЕМЯ</label>
                         <select name="time" id="reservation-time" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
-                            <option value="">Выберите время</option>
+                            <option value="" data-lang-ru="Выберите время" data-lang-en="Select time">Выберите время</option>
                             <option value="18:00">18:00</option>
                             <option value="19:00">19:00</option>
                             <option value="20:00">20:00</option>
@@ -169,15 +169,15 @@
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                     <div>
-                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ИМЯ</label>
-                        <input type="text" name="name" id="reservation-name" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ИМЯ" data-lang-en="NAME">ИМЯ</label>
+                        <input type="text" name="name" id="reservation-name" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]" data-placeholder-ru="Введите ваше имя" data-placeholder-en="Enter your name" placeholder="Введите ваше имя">
                     </div>
                     <div>
-                        <label class="block text-xs text-[#f5f1e8]/70 mb-3">ТЕЛЕФОН</label>
-                        <input type="tel" name="phone" id="reservation-phone" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                        <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ТЕЛЕФОН" data-lang-en="PHONE">ТЕЛЕФОН</label>
+                        <input type="tel" name="phone" id="reservation-phone" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]" data-placeholder-ru="+7 (999) 123-45-67" data-placeholder-en="+7 (999) 123-45-67" placeholder="+7 (999) 123-45-67">
                     </div>
                 </div>
-                <button type="submit" class="w-full px-12 py-4 bg-[#b8985f] text-[#1a1a1a] text-sm tracking-[0.2em] font-medium">ПОДТВЕРДИТЬ БРОНИРОВАНИЕ</button>
+                <button type="submit" class="w-full px-12 py-4 bg-[#b8985f] text-[#1a1a1a] text-sm tracking-[0.2em] font-medium" data-lang-ru="ПОДТВЕРДИТЬ БРОНИРОВАНИЕ" data-lang-en="CONFIRM RESERVATION">ПОДТВЕРДИТЬ БРОНИРОВАНИЕ</button>
             </form>
         </div>
     </section>
@@ -459,9 +459,11 @@
                         dateInput.setAttribute('min', today);
                     }
                     
-                    // Восстанавливаем кнопку
+                    // Восстанавливаем кнопку с учетом текущего языка
                     submitButton.disabled = false;
-                    submitButton.textContent = originalText;
+                    const currentLangForButton = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                    const buttonText = currentLangForButton === 'ru' ? 'ПОДТВЕРДИТЬ БРОНИРОВАНИЕ' : 'CONFIRM RESERVATION';
+                    submitButton.textContent = buttonText;
                     submitButton.className = originalClasses;
                     submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
                     
