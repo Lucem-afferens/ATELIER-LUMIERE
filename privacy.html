@@ -202,11 +202,10 @@
                 });
             }
             
-            // Обновляем текст кнопок переключения языка (показываем активный язык)
+            // Обновляем текст кнопки переключения языка (показываем активный язык)
             const langText = lang === 'ru' ? 'RU' : 'EN';
-            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
-                if (btn) btn.textContent = langText;
-            });
+            const langToggleBtn = document.getElementById('lang-toggle');
+            if (langToggleBtn) langToggleBtn.textContent = langText;
             
             // Сохраняем выбор языка в localStorage
             localStorage.setItem('preferredLanguage', lang);
