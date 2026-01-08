@@ -119,6 +119,35 @@
             max-width: 100%;
             height: auto;
         }
+        
+        /* Улучшенная видимость на touch-устройствах */
+        @media (hover: none) and (pointer: coarse) {
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Отключаем hover эффекты на touch устройствах для шапки */
+            header#header a:hover,
+            header#header button:hover {
+                color: inherit !important;
+                background: transparent !important;
+            }
+            
+            /* Добавляем активное состояние для touch */
+            header#header a:active,
+            header#header button:active {
+                opacity: 0.7;
+            }
+        }
+        
+        /* Hover стили только для устройств с курсором мыши */
+        @media (hover: hover) and (pointer: fine) {
+            header#header a:hover,
+            header#header button:hover {
+                color: #b8985f;
+            }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
