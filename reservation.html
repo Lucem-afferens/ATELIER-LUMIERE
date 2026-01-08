@@ -392,45 +392,9 @@
                 const today = new Date().toISOString().split('T')[0];
                 dateInput.setAttribute('min', today);
                 
-                // Инициализируем состояние placeholder при загрузке
-                const placeholder = dateInput.nextElementSibling;
-                if (placeholder && placeholder.classList.contains('date-placeholder')) {
-                    if (dateInput.value) {
-                        placeholder.style.opacity = '0';
-                    } else {
-                        placeholder.style.opacity = '1';
-                    }
-                }
-                
-                // Скрываем placeholder когда дата выбрана
-                dateInput.addEventListener('change', function() {
-                    const placeholder = this.nextElementSibling;
-                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
-                        if (this.value) {
-                            placeholder.style.opacity = '0';
-                        } else {
-                            placeholder.style.opacity = '1';
-                        }
-                    }
-                });
-                
-                // Скрываем placeholder при фокусе
-                dateInput.addEventListener('focus', function() {
-                    const placeholder = this.nextElementSibling;
-                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
-                        placeholder.style.opacity = '0';
-                    }
-                });
-                
-                // Показываем placeholder если поле пустое при потере фокуса
-                dateInput.addEventListener('blur', function() {
-                    const placeholder = this.nextElementSibling;
-                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
-                        if (!this.value) {
-                            placeholder.style.opacity = '1';
-                        }
-                    }
-                });
+                // Устанавливаем язык для date input при загрузке
+                const currentLang = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                dateInput.lang = currentLang;
             }
             
             reservationForm.addEventListener('submit', async (e) => {
