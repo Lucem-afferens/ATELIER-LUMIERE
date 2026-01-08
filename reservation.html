@@ -408,6 +408,16 @@
                 const today = new Date().toISOString().split('T')[0];
                 dateInput.setAttribute('min', today);
                 
+                // Инициализируем состояние placeholder при загрузке
+                const placeholder = dateInput.nextElementSibling;
+                if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                    if (dateInput.value) {
+                        placeholder.style.opacity = '0';
+                    } else {
+                        placeholder.style.opacity = '1';
+                    }
+                }
+                
                 // Скрываем placeholder когда дата выбрана
                 dateInput.addEventListener('change', function() {
                     const placeholder = this.nextElementSibling;
