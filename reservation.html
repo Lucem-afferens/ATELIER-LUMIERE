@@ -91,6 +91,26 @@
         header#header button:hover {
             color: #b8985f;
         }
+        
+        /* Кастомный placeholder для date input */
+        .date-input-custom {
+            color-scheme: dark;
+        }
+        .date-input-custom::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+        .date-placeholder {
+            transition: opacity 0.3s ease;
+        }
+        .date-input-custom:valid ~ .date-placeholder,
+        .date-input-custom:focus ~ .date-placeholder {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .date-input-custom:not(:valid):not(:focus) ~ .date-placeholder {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -141,11 +161,26 @@
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="font-display text-6xl mb-8 text-[#f5f1e8]" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">Забронируйте Стол</h1>
             <form id="reservation-form-page" class="bg-[#1a1a1a] border border-[#b8985f]/20 p-12">
-                <div id="form-message" class="hidden mb-6 p-4 rounded text-sm"></div>
+                <div id="form-message" class="hidden mb-6 p-6 border border-[#b8985f]/20 bg-[#0f0f0f]/80 backdrop-blur-sm">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 mt-0.5">
+                            <i class="form-message-icon text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="form-message-text text-sm font-light leading-relaxed"></p>
+                        </div>
+                        <button class="form-message-close flex-shrink-0 text-[#f5f1e8]/40 hover:text-[#b8985f] transition-colors duration-300" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
                     <div>
                         <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ДАТА" data-lang-en="DATE">ДАТА</label>
-                        <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8]">
+                        <div class="relative">
+                            <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] date-input-custom">
+                            <span class="date-placeholder absolute left-4 top-1/2 -translate-y-1/2 text-[#f5f1e8]/50 pointer-events-none text-sm" data-lang-ru="Выберите дату" data-lang-en="Select date">Выберите дату</span>
+                        </div>
                     </div>
                     <div>
                         <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ВРЕМЯ" data-lang-en="TIME">ВРЕМЯ</label>
@@ -228,6 +263,15 @@
                     element.placeholder = element.getAttribute('data-placeholder-ru');
                 } else {
                     element.placeholder = element.getAttribute('data-placeholder-en');
+                }
+            });
+            
+            // Обновляем кастомный placeholder для date input
+            document.querySelectorAll('.date-placeholder[data-lang-ru][data-lang-en]').forEach(element => {
+                if (lang === 'ru') {
+                    element.textContent = element.getAttribute('data-lang-ru');
+                } else {
+                    element.textContent = element.getAttribute('data-lang-en');
                 }
             });
             
@@ -363,6 +407,36 @@
             if (dateInput) {
                 const today = new Date().toISOString().split('T')[0];
                 dateInput.setAttribute('min', today);
+                
+                // Скрываем placeholder когда дата выбрана
+                dateInput.addEventListener('change', function() {
+                    const placeholder = this.nextElementSibling;
+                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                        if (this.value) {
+                            placeholder.style.opacity = '0';
+                        } else {
+                            placeholder.style.opacity = '1';
+                        }
+                    }
+                });
+                
+                // Скрываем placeholder при фокусе
+                dateInput.addEventListener('focus', function() {
+                    const placeholder = this.nextElementSibling;
+                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                        placeholder.style.opacity = '0';
+                    }
+                });
+                
+                // Показываем placeholder если поле пустое при потере фокуса
+                dateInput.addEventListener('blur', function() {
+                    const placeholder = this.nextElementSibling;
+                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                        if (!this.value) {
+                            placeholder.style.opacity = '1';
+                        }
+                    }
+                });
             }
             
             reservationForm.addEventListener('submit', async (e) => {
