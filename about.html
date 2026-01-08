@@ -201,7 +201,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center">
                 <a href="index.html" class="font-display text-xl tracking-[0.3em] text-[#b8985f] mb-6 block">ATELIER LUMIÈRE</a>
-                <p class="text-sm text-[#f5f1e8]/50">© 2024 Ателье Люмьер. Все права защищены.</p>
+                <p class="text-sm text-[#f5f1e8]/50" data-lang-ru="© 2024 Ателье Люмьер. Все права защищены." data-lang-en="© 2024 Atelier Lumière. All rights reserved.">© 2024 Ателье Люмьер. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -218,8 +218,8 @@
             
             // Обновляем все элементы с data-атрибутами
             document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
-                // Пропускаем название ресторана - оно всегда на английском
-                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                // Пропускаем элементы с классом font-display содержащие ATELIER LUMIÈRE - название ресторана всегда на английском
+                if (element.classList.contains('font-display') && (element.textContent.trim() === 'ATELIER LUMIÈRE' || element.textContent.trim() === 'АТЕЛЬЕ ЛЮМЬЕР')) {
                     return;
                 }
                 // Проверяем, содержит ли атрибут HTML теги (например, <br/>)

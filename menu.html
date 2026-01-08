@@ -406,7 +406,7 @@
                 
                 <div>
                     <h4 class="text-xs tracking-[0.3em] text-[#b8985f] mb-6" data-lang-ru="АДРЕС" data-lang-en="ADDRESS">АДРЕС</h4>
-                    <p class="text-sm text-[#f5f1e8]/70 leading-relaxed font-light">
+                    <p class="text-sm text-[#f5f1e8]/70 leading-relaxed font-light" data-lang-ru="Тверская улица, 12<br/>Москва, 125009<br/>Российская Федерация" data-lang-en="Tverskaya Street, 12<br/>Moscow, 125009<br/>Russian Federation">
                         Тверская улица, 12<br/>
                         Москва, 125009<br/>
                         Российская Федерация
@@ -466,8 +466,8 @@
             
             // Обновляем все элементы с data-атрибутами
             document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
-                // Пропускаем название ресторана - оно всегда на английском
-                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                // Пропускаем элементы с классом font-display содержащие ATELIER LUMIÈRE - название ресторана всегда на английском
+                if (element.classList.contains('font-display') && (element.textContent.trim() === 'ATELIER LUMIÈRE' || element.textContent.trim() === 'АТЕЛЬЕ ЛЮМЬЕР')) {
                     return;
                 }
                 // Проверяем, содержит ли атрибут HTML теги (например, <br/>)

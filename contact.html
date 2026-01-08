@@ -219,8 +219,8 @@
             
             // Обновляем все элементы с data-атрибутами
             document.querySelectorAll('[data-lang-ru][data-lang-en]').forEach(element => {
-                // Пропускаем название ресторана - оно всегда на английском
-                if (element.textContent === 'ATELIER LUMIÈRE' || element.getAttribute('data-lang-en') === 'ATELIER LUMIÈRE') {
+                // Пропускаем элементы с классом font-display содержащие ATELIER LUMIÈRE - название ресторана всегда на английском
+                if (element.classList.contains('font-display') && (element.textContent.trim() === 'ATELIER LUMIÈRE' || element.textContent.trim() === 'АТЕЛЬЕ ЛЮМЬЕР')) {
                     return;
                 }
                 // Проверяем, содержит ли атрибут HTML теги (например, <br/>)
