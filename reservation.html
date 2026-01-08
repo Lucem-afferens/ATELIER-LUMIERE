@@ -311,6 +311,15 @@
                 }
             });
             
+            // Обновляем белый переводимый placeholder для date input
+            document.querySelectorAll('.date-placeholder-whit[data-lang-ru][data-lang-en]').forEach(element => {
+                if (lang === 'ru') {
+                    element.textContent = element.getAttribute('data-lang-ru');
+                } else {
+                    element.textContent = element.getAttribute('data-lang-en');
+                }
+            });
+            
             // Обновляем стили кнопок языка
             const langRuBtns = document.querySelectorAll('#lang-ru, #lang-ru-mobile');
             const langEnBtns = document.querySelectorAll('#lang-en, #lang-en-mobile');
