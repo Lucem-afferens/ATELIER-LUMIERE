@@ -200,8 +200,30 @@
                 });
             }
             
+            // Обновляем текст кнопок переключения языка (показываем активный язык)
+            const langText = lang === 'ru' ? 'RU' : 'EN';
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
+                if (btn) btn.textContent = langText;
+            });
+            
             // Сохраняем выбор языка в localStorage
             localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Функция переключения языка (переключает между ru и en)
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang || 'ru';
+            const newLang = currentLang === 'ru' ? 'en' : 'ru';
+            switchLanguage(newLang);
+        }
+        
+        // Обновляем текст кнопок при загрузке страницы
+        function updateLangButtons() {
+            const lang = currentLang || document.documentElement.lang || 'ru';
+            const langText = lang === 'ru' ? 'RU' : 'EN';
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
+                if (btn) btn.textContent = langText;
+            });
         }
         
         // Загружаем сохраненный язык при загрузке страницы
@@ -210,18 +232,21 @@
             switchLanguage(savedLang);
         }
         
-        // Обработчики для кнопок переключения языка
-        document.getElementById('lang-ru')?.addEventListener('click', () => switchLanguage('ru'));
-        document.getElementById('lang-en')?.addEventListener('click', () => switchLanguage('en'));
-        document.getElementById('lang-ru-mobile')?.addEventListener('click', () => {
-            switchLanguage('ru');
-            document.getElementById('mobile-nav')?.classList.add('hidden');
-            document.body.style.overflow = '';
-        });
-        document.getElementById('lang-en-mobile')?.addEventListener('click', () => {
-            switchLanguage('en');
-            document.getElementById('mobile-nav')?.classList.add('hidden');
-            document.body.style.overflow = '';
+        // Обработчики для кнопок переключения языка (одна кнопка для всех)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Обновляем кнопки при загрузке
+            updateLangButtons();
+            
+            // Обработчики кликов
+            document.getElementById('lang-toggle')?.addEventListener('click', () => {
+                toggleLanguage();
+                updateLangButtons();
+            });
+            
+            document.getElementById('lang-toggle-mobile')?.addEventListener('click', () => {
+                toggleLanguage();
+                updateLangButtons();
+            });
         });
         
         // Открытие/закрытие мобильного меню

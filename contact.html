@@ -203,7 +203,7 @@
     <footer class="w-full bg-[#0a0a0a] py-8 sm:py-12 md:py-16 px-4 sm:px-8 md:px-16 border-t border-[#b8985f]/20">
         <div class="max-w-7xl mx-auto text-center">
             <a href="index.html" class="font-display text-xl tracking-[0.3em] text-[#b8985f] mb-6 block">ATELIER LUMIÈRE</a>
-            <p class="text-sm text-[#f5f1e8]/50">© 2024 Ателье Люмьер. Все права защищены.</p>
+            <p class="text-sm text-[#f5f1e8]/50" data-lang-ru="© 2024 Ателье Люмьер. Все права защищены." data-lang-en="© 2024 Atelier Lumière. All rights reserved.">© 2024 Ателье Люмьер. Все права защищены.</p>
         </div>
     </footer>
 
@@ -264,6 +264,7 @@
             
             // Обновляем текст кнопок переключения языка (показываем активный язык)
             const langText = lang === 'ru' ? 'RU' : 'EN';
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
                 if (btn) btn.textContent = langText;
             });
             
@@ -284,10 +285,11 @@
             switchLanguage(newLang);
         }
         
-                // Обновляем текст кнопок при загрузке страницы
+        // Обновляем текст кнопок при загрузке страницы
         function updateLangButtons() {
             const lang = currentLang || document.documentElement.lang || 'ru';
             const langText = lang === 'ru' ? 'RU' : 'EN';
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
                 if (btn) btn.textContent = langText;
             });
         }
@@ -304,10 +306,6 @@
             });
             
             document.getElementById('lang-toggle-mobile')?.addEventListener('click', () => {
-                toggleLanguage();
-                updateLangButtons();
-            });
-            
                 toggleLanguage();
                 updateLangButtons();
             });
