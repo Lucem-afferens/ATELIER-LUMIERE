@@ -95,13 +95,22 @@
         /* Кастомный placeholder для date input */
         .date-input-custom {
             color-scheme: dark;
+            color: transparent; /* Скрываем встроенный формат браузера */
         }
         .date-input-custom::-webkit-calendar-picker-indicator {
             filter: invert(1);
             cursor: pointer;
+            z-index: 1;
+            position: relative;
+        }
+        /* Показываем цвет текста когда есть значение */
+        .date-input-custom:valid,
+        .date-input-custom:focus {
+            color: #f5f1e8;
         }
         .date-placeholder {
             transition: opacity 0.3s ease;
+            z-index: 0;
         }
         .date-input-custom:valid ~ .date-placeholder,
         .date-input-custom:focus ~ .date-placeholder {
@@ -179,7 +188,7 @@
                         <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ДАТА" data-lang-en="DATE">ДАТА</label>
                         <div class="relative">
                             <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] date-input-custom">
-                            <span class="date-placeholder absolute left-4 top-1/2 -translate-y-1/2 text-[#f5f1e8]/50 pointer-events-none text-sm" data-lang-ru="Выберите дату" data-lang-en="Select date">Выберите дату</span>
+                            <span class="date-placeholder absolute left-4 top-1/2 -translate-y-1/2 text-[#f5f1e8]/50 pointer-events-none text-sm" data-lang-ru="дд.мм.гггг" data-lang-en="mm.dd.yyyy">дд.мм.гггг</span>
                         </div>
                     </div>
                     <div>
