@@ -67,6 +67,15 @@
         header#header button:hover {
             color: #b8985f;
         }
+        
+        /* Плавное появление заголовка при загрузке */
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -114,8 +123,8 @@
     </nav>
 
     <section class="pt-20 pb-16 sm:pt-32 md:pt-40 px-4 bg-[#0f0f0f]">
-        <div class="max-w-7xl mx-auto text-center">
-            <h1 class="font-display text-6xl mb-8 text-[#f5f1e8]" data-lang-ru="Частные Ужины" data-lang-en="Private Dining">Частные Ужины</h1>
+        <div class="max-w-7xl mx-auto text-center fade-in">
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-8 tracking-wide text-[#f5f1e8] px-4" data-lang-ru="Частные Ужины" data-lang-en="Private Dining">Частные Ужины</h1>
             <p class="text-lg text-[#f5f1e8]/70 max-w-2xl mx-auto" data-lang-ru="Эксклюзивный ужин для вашего события" data-lang-en="Exclusive dining for your occasion">Эксклюзивный ужин для вашего события</p>
         </div>
     </section>

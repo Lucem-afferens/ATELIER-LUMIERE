@@ -141,6 +141,15 @@
         .date-input-custom:not(:valid):not(:focus) ~ .date-placeholder-whit {
             opacity: 1;
         }
+        
+        /* Плавное появление заголовка при загрузке */
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -188,8 +197,8 @@
     </nav>
 
     <section class="pt-20 pb-16 sm:pt-32 md:pt-40 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="font-display text-6xl mb-8 text-[#f5f1e8]" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">Забронируйте Стол</h1>
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-8 tracking-wide text-[#f5f1e8] px-4" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">Забронируйте Стол</h1>
             <form id="reservation-form-page" class="bg-[#1a1a1a] border border-[#b8985f]/20 p-12">
                 <div id="form-message" class="hidden mb-6 p-6 border border-[#b8985f]/20 bg-[#0f0f0f]/80 backdrop-blur-sm">
                     <div class="flex items-start space-x-4">
