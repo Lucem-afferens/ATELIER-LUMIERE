@@ -95,18 +95,34 @@
         /* Кастомный placeholder для date input */
         .date-input-custom {
             color-scheme: dark;
-            color: transparent; /* Скрываем встроенный формат браузера */
+        }
+        /* Скрываем встроенный формат браузера когда поле пустое */
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-text,
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-month-field,
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-day-field,
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-year-field {
+            color: transparent;
+        }
+        /* Показываем цвет текста когда есть значение */
+        .date-input-custom:valid,
+        .date-input-custom:focus {
+            color: #f5f1e8;
+        }
+        .date-input-custom:valid::-webkit-datetime-edit-text,
+        .date-input-custom:valid::-webkit-datetime-edit-month-field,
+        .date-input-custom:valid::-webkit-datetime-edit-day-field,
+        .date-input-custom:valid::-webkit-datetime-edit-year-field,
+        .date-input-custom:focus::-webkit-datetime-edit-text,
+        .date-input-custom:focus::-webkit-datetime-edit-month-field,
+        .date-input-custom:focus::-webkit-datetime-edit-day-field,
+        .date-input-custom:focus::-webkit-datetime-edit-year-field {
+            color: #f5f1e8;
         }
         .date-input-custom::-webkit-calendar-picker-indicator {
             filter: invert(1);
             cursor: pointer;
             z-index: 1;
             position: relative;
-        }
-        /* Показываем цвет текста когда есть значение */
-        .date-input-custom:valid,
-        .date-input-custom:focus {
-            color: #f5f1e8;
         }
         .date-placeholder {
             transition: opacity 0.3s ease;
