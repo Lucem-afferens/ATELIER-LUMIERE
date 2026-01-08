@@ -478,7 +478,9 @@
                     );
                     const submitButton = reservationForm.querySelector('button[type="submit"]');
                     submitButton.disabled = false;
-                    submitButton.textContent = originalText;
+                    const currentLangForButton = document.documentElement.lang || localStorage.getItem('preferredLanguage') || 'ru';
+                    const buttonText = currentLangForButton === 'ru' ? 'ПОДТВЕРДИТЬ БРОНИРОВАНИЕ' : 'CONFIRM RESERVATION';
+                    submitButton.textContent = buttonText;
                     submitButton.className = originalClasses;
                     submitButton.classList.remove('opacity-70', 'cursor-not-allowed');
                 }
