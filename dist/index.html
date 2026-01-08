@@ -237,8 +237,17 @@
     </div>
 
         <div class="relative z-10 w-full h-full flex flex-col">
-            <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex justify-between items-start fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
-                <div class="flex items-center space-x-4 md:space-x-12">
+            <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex md:justify-between items-center fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
+                <!-- Мобильная кнопка языка и меню (слева) -->
+                <div class="flex items-center space-x-4 md:hidden">
+                    <button id="lang-toggle-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
+                    <button id="mobile-menu-btn" class="mobile-menu text-[#b8985f] text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                
+                <!-- Название ресторана -->
+                <div class="flex items-center space-x-4 md:space-x-12 flex-1 md:flex-none justify-center md:justify-start">
                     <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]">
                         ATELIER LUMIÈRE
                     </a>
@@ -255,14 +264,6 @@
                     <div class="h-6 w-px bg-[#b8985f]/30"></div>
                     <button id="lang-toggle" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-xs lg:text-sm">RU</button>
                 </nav>
-                
-                <!-- Мобильная кнопка языка и меню -->
-                <div class="flex items-center space-x-4 md:hidden">
-                    <button id="lang-toggle-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
-                    <button id="mobile-menu-btn" class="mobile-menu text-[#b8985f] text-2xl">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
             </header>
 
             <!-- Мобильное меню -->
