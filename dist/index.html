@@ -218,33 +218,23 @@
             .text-base { font-size: 0.875rem; }
         }
         
-        /* Улучшенная видимость на touch-устройствах */
-        @media (hover: none) and (pointer: coarse) {
-            button, a {
+        /* Стили шапки зависят только от ширины экрана */
+        /* Минимальный размер для удобства нажатия на маленьких экранах */
+        @media (max-width: 768px) {
+            header#header button,
+            header#header a {
                 min-height: 44px;
                 min-width: 44px;
-            }
-            
-            /* Отключаем hover эффекты на touch устройствах для шапки */
-            header#header a:hover,
-            header#header button:hover {
-                color: inherit !important;
-                background: transparent !important;
-            }
-            
-            /* Добавляем активное состояние для touch */
-            header#header a:active,
-            header#header button:active {
-                opacity: 0.7;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
         
-        /* Hover стили только для устройств с курсором мыши */
-        @media (hover: hover) and (pointer: fine) {
-            header#header a:hover,
-            header#header button:hover {
-                color: #b8985f;
-            }
+        /* Hover эффекты работают всегда для всех элементов шапки */
+        header#header a:hover,
+        header#header button:hover {
+            color: #b8985f;
         }
     </style>
 </head>
