@@ -123,33 +123,34 @@
 </head>
 <body class="overflow-x-hidden">
     <div class="grain-overlay"></div>
-    <header id="header" class="w-full px-4 sm:px-8 md:px-16 py-4 md:py-8 flex md:justify-between items-center fixed top-0 z-50 bg-[#1a1a1a]/95 backdrop-blur-sm">
-        <!-- Мобильная кнопка языка и меню (слева) -->
-        <div class="flex items-center space-x-4 md:hidden">
-            <button id="lang-toggle-mobile" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-sm">RU</button>
-            <button id="mobile-menu-btn" class="mobile-menu text-[#b8985f] text-2xl">
+    <!-- Новая единая шапка -->
+    <header id="header" class="w-full px-4 sm:px-6 md:px-8 py-3 md:py-4 flex justify-between items-center fixed top-0 z-50 bg-[#1a1a1a]/80 backdrop-blur-md border-b border-[#b8985f]/10">
+        <!-- Название ресторана (слева, выровнено по центру вертикально) -->
+        <a href="index.html" class="font-display text-sm sm:text-base md:text-lg lg:text-xl tracking-[0.3em] text-[#b8985f]">
+            ATELIER LUMIÈRE
+        </a>
+        
+        <!-- Правая часть: мобильная и десктопная -->
+        <div class="flex items-center space-x-4">
+            <!-- Десктопная навигация -->
+            <nav class="hidden md:flex items-center space-x-5 lg:space-x-8 text-xs lg:text-sm tracking-wider">
+                <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
+                <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
+                <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
+                <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
+                <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
+                <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
+                <div class="h-5 w-px bg-[#b8985f]/30"></div>
+            </nav>
+            
+            <!-- Переключатель языка (всегда видим) -->
+            <button id="lang-toggle" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-xs lg:text-sm">RU</button>
+            
+            <!-- Кнопка бургера (только на мобильных) -->
+            <button id="mobile-menu-btn" class="md:hidden text-[#b8985f] text-xl">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-        
-        <!-- Название ресторана -->
-        <div class="flex items-center space-x-4 md:space-x-12 flex-1 md:flex-none justify-center md:justify-start">
-            <a href="index.html" class="font-display text-sm sm:text-base md:text-xl tracking-[0.3em] text-[#b8985f]">
-                ATELIER LUMIÈRE
-            </a>
-        </div>
-        
-        <!-- Десктопная навигация -->
-        <nav class="desktop-nav hidden md:flex items-center space-x-6 lg:space-x-10 text-xs lg:text-sm tracking-wider">
-            <a href="index.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ГЛАВНАЯ" data-lang-en="HOME">ГЛАВНАЯ</a>
-            <a href="menu.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="МЕНЮ" data-lang-en="MENU">МЕНЮ</a>
-            <a href="wine.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ВИННАЯ КАРТА" data-lang-en="WINE LIST">ВИННАЯ КАРТА</a>
-            <a href="about.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="О РЕСТОРАНЕ" data-lang-en="ABOUT">О РЕСТОРАНЕ</a>
-            <a href="private-dining.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE DINING">ЧАСТНЫЕ УЖИНЫ</a>
-            <a href="contact.html" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300" data-lang-ru="КОНТАКТЫ" data-lang-en="CONTACT">КОНТАКТЫ</a>
-            <div class="h-6 w-px bg-[#b8985f]/30"></div>
-            <button id="lang-toggle" class="text-[#f5f1e8]/80 hover:text-[#b8985f] transition-colors duration-300 cursor-pointer font-medium text-xs lg:text-sm">RU</button>
-        </nav>
     </header>
     
     <!-- Мобильное меню -->
@@ -292,11 +293,10 @@
                 }
             });
             
-            // Обновляем текст кнопок переключения языка (показываем активный язык)
+            // Обновляем текст кнопки переключения языка (показываем активный язык)
             const langText = lang === 'ru' ? 'RU' : 'EN';
-            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
-                if (btn) btn.textContent = langText;
-            });
+            const langToggleBtn = document.getElementById('lang-toggle');
+            if (langToggleBtn) langToggleBtn.textContent = langText;
             
             // Сохраняем выбор языка в localStorage
             localStorage.setItem('preferredLanguage', lang);
@@ -309,13 +309,14 @@
             switchLanguage(newLang);
         }
         
-        // Обновляем текст кнопок при загрузке страницы
-        function updateLangButtons() {
+        // Обновляем текст кнопки при загрузке страницы
+        function updateLangButton() {
             const lang = currentLang || document.documentElement.lang || 'ru';
             const langText = lang === 'ru' ? 'RU' : 'EN';
-            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
-                if (btn) btn.textContent = langText;
-            });
+            
+            // Обновляем текст кнопки
+            const langToggleBtn = document.getElementById('lang-toggle');
+            if (langToggleBtn) langToggleBtn.textContent = langText;
         }
         
         // Загружаем сохраненный язык при загрузке страницы
@@ -324,20 +325,15 @@
             switchLanguage(savedLang);
         }
         
-        // Обработчики для кнопок переключения языка (одна кнопка для всех)
+        // Обработчик для кнопки переключения языка
         document.addEventListener('DOMContentLoaded', () => {
-            // Обновляем кнопки при загрузке
-            updateLangButtons();
+            // Обновляем кнопку при загрузке
+            updateLangButton();
             
-            // Обработчики кликов
+            // Обработчик клика
             document.getElementById('lang-toggle')?.addEventListener('click', () => {
                 toggleLanguage();
-                updateLangButtons();
-            });
-            
-            document.getElementById('lang-toggle-mobile')?.addEventListener('click', () => {
-                toggleLanguage();
-                updateLangButtons();
+                updateLangButton();
             });
         });
         
