@@ -91,6 +91,65 @@
         header#header button:hover {
             color: #b8985f;
         }
+        
+        /* Стили для date input */
+        .date-input-custom {
+            color-scheme: dark;
+        }
+        /* Скрываем встроенный формат браузера когда поле пустое */
+        .date-input-custom:not(:valid):not(:focus) {
+            color: transparent;
+        }
+        /* Скрываем встроенный формат браузера через псевдоэлементы */
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-text,
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-month-field,
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-day-field,
+        .date-input-custom:not(:valid):not(:focus)::-webkit-datetime-edit-year-field {
+            color: transparent;
+        }
+        /* Показываем цвет текста когда есть значение */
+        .date-input-custom:valid,
+        .date-input-custom:focus {
+            color: #f5f1e8;
+        }
+        .date-input-custom:valid::-webkit-datetime-edit-text,
+        .date-input-custom:valid::-webkit-datetime-edit-month-field,
+        .date-input-custom:valid::-webkit-datetime-edit-day-field,
+        .date-input-custom:valid::-webkit-datetime-edit-year-field,
+        .date-input-custom:focus::-webkit-datetime-edit-text,
+        .date-input-custom:focus::-webkit-datetime-edit-month-field,
+        .date-input-custom:focus::-webkit-datetime-edit-day-field,
+        .date-input-custom:focus::-webkit-datetime-edit-year-field {
+            color: #f5f1e8;
+        }
+        .date-input-custom::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+            z-index: 1;
+            position: relative;
+        }
+        /* Белый переводимый placeholder */
+        .date-placeholder-whit {
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        .date-input-custom:valid ~ .date-placeholder-whit,
+        .date-input-custom:focus ~ .date-placeholder-whit {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .date-input-custom:not(:valid):not(:focus) ~ .date-placeholder-whit {
+            opacity: 1;
+        }
+        
+        /* Плавное появление заголовка при загрузке */
+        .fade-in {
+            animation: fadeIn 1.2s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -138,8 +197,12 @@
     </nav>
 
     <section class="pt-20 pb-16 sm:pt-32 md:pt-40 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="font-display text-6xl mb-8 text-[#f5f1e8]" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">Забронируйте Стол</h1>
+        <div class="max-w-4xl mx-auto text-center fade-in">
+            <div class="mb-4 md:mb-6">
+                <div class="w-8 md:w-12 h-px bg-[#b8985f] mx-auto mb-4 md:mb-8"></div>
+                <p class="text-xs sm:text-sm tracking-[0.3em] text-[#b8985f] mb-2 md:mb-4" data-lang-ru="БРОНИРОВАНИЕ" data-lang-en="RESERVATION">БРОНИРОВАНИЕ</p>
+            </div>
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 md:mb-8 tracking-wide text-[#f5f1e8] px-4" data-lang-ru="Забронируйте Стол" data-lang-en="Reserve Your Table">Забронируйте Стол</h1>
             <form id="reservation-form-page" class="bg-[#1a1a1a] border border-[#b8985f]/20 p-12">
                 <div id="form-message" class="hidden mb-6 p-6 border border-[#b8985f]/20 bg-[#0f0f0f]/80 backdrop-blur-sm">
                     <div class="flex items-start space-x-4">
@@ -159,7 +222,7 @@
                         <label class="block text-xs text-[#f5f1e8]/70 mb-3" data-lang-ru="ДАТА" data-lang-en="DATE">ДАТА</label>
                         <div class="relative">
                             <input type="date" name="date" id="reservation-date" required class="w-full bg-[#0f0f0f] border border-[#b8985f]/30 px-4 py-3 text-[#f5f1e8] date-input-custom">
-                            <span class="date-placeholder absolute left-4 top-1/2 -translate-y-1/2 text-[#f5f1e8]/50 pointer-events-none text-sm" data-lang-ru="Выберите дату" data-lang-en="Select date">Выберите дату</span>
+                            <span class="date-placeholder-whit absolute left-4 top-1/2 -translate-y-1/2 text-[#f5f1e8] pointer-events-none text-sm" data-lang-ru="дд.мм.гггг" data-lang-en="mm.dd.yyyy">дд.мм.гггг</span>
                         </div>
                     </div>
                     <div>
@@ -246,12 +309,27 @@
                 }
             });
             
+            // Обновляем язык для date input (чтобы браузер показывал правильный формат)
+            const dateInput = document.getElementById('reservation-date');
+            if (dateInput) {
+                dateInput.lang = lang;
+            }
+            
             // Обновляем опции select
             document.querySelectorAll('select option[data-lang-ru][data-lang-en]').forEach(option => {
                 if (lang === 'ru') {
                     option.textContent = option.getAttribute('data-lang-ru');
                 } else {
                     option.textContent = option.getAttribute('data-lang-en');
+                }
+            });
+            
+            // Обновляем белый переводимый placeholder для date input
+            document.querySelectorAll('.date-placeholder-whit[data-lang-ru][data-lang-en]').forEach(element => {
+                if (lang === 'ru') {
+                    element.textContent = element.getAttribute('data-lang-ru');
+                } else {
+                    element.textContent = element.getAttribute('data-lang-en');
                 }
             });
             
@@ -379,10 +457,20 @@
                 const today = new Date().toISOString().split('T')[0];
                 dateInput.setAttribute('min', today);
                 
-                // Скрываем placeholder когда дата выбрана
+                // Инициализируем состояние белого placeholder при загрузке
+                const placeholder = dateInput.nextElementSibling;
+                if (placeholder && placeholder.classList.contains('date-placeholder-whit')) {
+                    if (dateInput.value) {
+                        placeholder.style.opacity = '0';
+                    } else {
+                        placeholder.style.opacity = '1';
+                    }
+                }
+                
+                // Обновляем видимость placeholder при изменении даты
                 dateInput.addEventListener('change', function() {
                     const placeholder = this.nextElementSibling;
-                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                    if (placeholder && placeholder.classList.contains('date-placeholder-whit')) {
                         if (this.value) {
                             placeholder.style.opacity = '0';
                         } else {
@@ -394,7 +482,7 @@
                 // Скрываем placeholder при фокусе
                 dateInput.addEventListener('focus', function() {
                     const placeholder = this.nextElementSibling;
-                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                    if (placeholder && placeholder.classList.contains('date-placeholder-whit')) {
                         placeholder.style.opacity = '0';
                     }
                 });
@@ -402,7 +490,7 @@
                 // Показываем placeholder если поле пустое при потере фокуса
                 dateInput.addEventListener('blur', function() {
                     const placeholder = this.nextElementSibling;
-                    if (placeholder && placeholder.classList.contains('date-placeholder')) {
+                    if (placeholder && placeholder.classList.contains('date-placeholder-whit')) {
                         if (!this.value) {
                             placeholder.style.opacity = '1';
                         }

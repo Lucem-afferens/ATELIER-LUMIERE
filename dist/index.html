@@ -236,6 +236,10 @@
         header#header button:hover {
             color: #b8985f;
         }
+
+        header {
+            z-index: 99999;
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -317,7 +321,8 @@
             </div>
         </div>
 
-            <div class="px-4 sm:px-8 md:px-16 pb-6 md:pb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
+            <!-- Блок с контактами - скрыт на мобильных (<640px) -->
+            <div class="hidden sm:flex px-4 sm:px-8 md:px-16 pb-6 md:pb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
                 <div class="text-xs tracking-wider text-[#f5f1e8]/50 space-y-1">
                     <p data-lang-ru="Тверская улица, 12" data-lang-en="Tverskaya Street, 12">Тверская улица, 12</p>
                     <p data-lang-ru="Москва, 125009" data-lang-en="Moscow, 125009">Москва, 125009</p>
@@ -336,13 +341,41 @@
     </div>
 </div>
 
+    <!-- Контактная информация для мобильных устройств (<640px) -->
+    <section class="sm:hidden w-full bg-[#1a1a1a] border-t border-[#b8985f]/10 py-6 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col space-y-4 text-center">
+                <div class="text-xs tracking-wider text-[#f5f1e8]/60 space-y-1">
+                    <p class="text-[#b8985f]/80 mb-1" data-lang-ru="АДРЕС" data-lang-en="ADDRESS">АДРЕС</p>
+                    <p data-lang-ru="Тверская улица, 12" data-lang-en="Tverskaya Street, 12">Тверская улица, 12</p>
+                    <p data-lang-ru="Москва, 125009" data-lang-en="Moscow, 125009">Москва, 125009</p>
+                </div>
+                
+                <div class="w-16 h-px bg-[#b8985f]/20 mx-auto"></div>
+                
+                <div class="text-xs tracking-wider text-[#f5f1e8]/60 space-y-1">
+                    <p class="text-[#b8985f]/80 mb-1" data-lang-ru="ЧАСЫ РАБОТЫ" data-lang-en="HOURS">ЧАСЫ РАБОТЫ</p>
+                    <p data-lang-ru="ВТОРНИК – СУББОТА" data-lang-en="TUESDAY – SATURDAY">ВТОРНИК – СУББОТА</p>
+                    <p>18:00 – 23:00</p>
+                </div>
+                
+                <div class="w-16 h-px bg-[#b8985f]/20 mx-auto"></div>
+                
+                <div class="text-xs tracking-wider text-[#f5f1e8]/60 space-y-1">
+                    <p class="text-[#b8985f]/80 mb-1" data-lang-ru="БРОНИРОВАНИЕ" data-lang-en="RESERVATIONS">БРОНИРОВАНИЕ</p>
+                    <p class="text-[#b8985f]">+7 495 123 4567</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="philosophy-section" class="w-full bg-[#0f0f0f] py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-16">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
                 <div>
-                    <div class="mb-8">
+                    <div class="mb-8 text-center">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-4" data-lang-ru="НАША ФИЛОСОФИЯ" data-lang-en="OUR PHILOSOPHY">НАША ФИЛОСОФИЯ</p>
-                        <div class="w-16 h-px bg-[#b8985f]"></div>
+                        <div class="w-16 h-px bg-[#b8985f] mx-auto"></div>
         </div>
 
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-8 text-[#f5f1e8]" data-lang-ru="Где Традиция<br/>Встречается с Инновацией" data-lang-en="Where Tradition<br/>Meets Innovation">
@@ -379,9 +412,9 @@
         </div>
 
                 <div class="order-1 md:order-2">
-                    <div class="mb-4 md:mb-8">
+                    <div class="mb-4 md:mb-8 text-center">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-2 md:mb-4" data-lang-ru="ШЕФ-ПОВАР" data-lang-en="EXECUTIVE CHEF">ШЕФ-ПОВАР</p>
-                        <div class="w-16 h-px bg-[#b8985f]"></div>
+                        <div class="w-16 h-px bg-[#b8985f] mx-auto"></div>
                 </div>
                     
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-6 text-[#f5f1e8]" data-lang-ru="Александр Волков" data-lang-en="Alexander Volkov">
@@ -490,9 +523,9 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
                 <div>
-                    <div class="mb-8">
+                    <div class="mb-8 text-center">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-4" data-lang-ru="ВИННАЯ ПРОГРАММА" data-lang-en="WINE PROGRAM">ВИННАЯ ПРОГРАММА</p>
-                        <div class="w-16 h-px bg-[#b8985f]"></div>
+                        <div class="w-16 h-px bg-[#b8985f] mx-auto"></div>
                 </div>
                     
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-8 text-[#f5f1e8]" data-lang-ru="Исключительная<br/>Коллекция Вин" data-lang-en="An Exceptional<br/>Cellar Collection">
@@ -579,9 +612,9 @@
         </div>
 
                 <div class="order-1 md:order-2">
-                    <div class="mb-4 md:mb-8">
+                    <div class="mb-4 md:mb-8 text-center">
                         <p class="text-xs tracking-[0.3em] text-[#b8985f] mb-2 md:mb-4" data-lang-ru="ЧАСТНЫЕ УЖИНЫ" data-lang-en="PRIVATE EXPERIENCES">ЧАСТНЫЕ УЖИНЫ</p>
-                        <div class="w-16 h-px bg-[#b8985f]"></div>
+                        <div class="w-16 h-px bg-[#b8985f] mx-auto"></div>
         </div>
                     
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-4 md:mb-8 text-[#f5f1e8]" data-lang-ru="Эксклюзивный Ужин<br/>для Вашего События" data-lang-en="Exclusive Dining<br/>for Your Occasion">
